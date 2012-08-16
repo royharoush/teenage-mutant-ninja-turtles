@@ -1,0 +1,3 @@
+=Heading1= The teenage-mutant-ninja-turtles tool is an easy to use python script that helps you to to generate and modify payloads for finding vulnerabilities in web applications (Well not that is almost true).
+
+It is designed to be used by people with a wide range of security experience and as such is ideal for developers and functional testers who are new to penetration testing as well as being a useful addition to an experienced pen testers arsenal. 
