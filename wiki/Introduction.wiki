@@ -1,12 +1,13 @@
 ----
 = Introduction =
 ----
+
 The teenage-mutant-ninja-turtles project is three things:
 
-1st) A collection of known attack patterns focused in Web Application input attacks (e.g. SQL Injections, XSS attacks e.t.c)
+# A collection of known attack patterns focused in Web Application input attacks (e.g. SQL Injections, XSS attacks e.t.c)
 
-2nd) A collection of error messages produced by malicious and malformed user inputs. 
+# A collection of error messages produced by malicious and malformed user inputs, which you can use with Burp intruder or other grep-like utilities to identify and verify vulnerabilities when fuzzing. 
 
-3rd) An easy to use python script that helps you to obfuscate payloads for bypassing costume Web Application filters.
+# An easy to use python script that helps you to obfuscate payloads for bypassing costume Web Application filters.
 
 It is designed to be used by people with a wide range of security experience and as such is ideal for developers and functional testers who are new to penetration testing as well as being a useful addition to an experienced pen testers arsenal toolkit.
