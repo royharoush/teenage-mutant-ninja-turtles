@@ -1,4 +1,4 @@
-=Heading1= Introduction =Heading1=
+= Introduction =
 
 The teenage-mutant-ninja-turtles project is three things:
 
