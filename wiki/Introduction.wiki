@@ -1,4 +1,4 @@
-*bold* The teenage-mutant-ninja-turtles project is three things:*bold*
+* The teenage-mutant-ninja-turtles project is three things:*
 
 1st) A collection of known attack patterns focused in Web Application input attacks (e.g. SQL Injections, XSS attacks e.t.c)
 
