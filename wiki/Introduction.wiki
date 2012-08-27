@@ -18,11 +18,9 @@ This article is going to talk about Obfuscated SQL Injection Fuzzing. Nowadays a
 
 First of all what obfuscate means based on the Dictionary.com:
 
-_"Definition of obfuscate: verb (used with object), ob·fus·cat·ed, ob·fus·cat·ing._
+*Definition of obfuscate:* verb (used with object), _ob·fus·cat·ed, ob·fus·cat·ing._
 
-# To confuse, bewilder, or stupefy.
-# To make obscure or unclear: to obfuscate a problem with extraneous information.
-# To darken."
+_"To confuse, bewilder, or stupefy.To make obscure or unclear: to obfuscate a problem with extraneous information.To darken."_
 
 Web applications frequently employ input filters that are designed to defend against common attacks, including SQL injection. These filters may exist within the application's own code, in the form of custom input validation, or may be implemented outside the application, in the form of Web application firewalls (WAF's) or intrusion prevention systems (IPS's). Usually this types of filters are called virtual patches. After you read this article should be able to understand that virtual patching is not going to protect you from advanced attackers.
 
@@ -30,9 +28,9 @@ Web applications frequently employ input filters that are designed to defend aga
 
 In the context of SQL injection attacks, the most interesting filters you are likely to encounter are those which attempt to block any input containing one or more of the following:
 
-1.SQL keywords, such as SELECT, AND, INSERT 
-2.Specific individual characters, such as quotation marks or hyphens 
-3.White-spaces 
+  # SQL keywords, such as SELECT, AND, INSERT 
+  # Specific individual characters, such as quotation marks or hyphens 
+  # White-spaces 
 
 You may also encounter filters which, rather than blocking input containing the items in the preceding list, attempt to modify the input to make it safe, either by encoding or escaping problematic characters or by stripping the offending items from the input and processing what is left in a normal way, which by the way is not logical because if someone would want to harm your Web Application what for you would want to process his malicious input.
 
