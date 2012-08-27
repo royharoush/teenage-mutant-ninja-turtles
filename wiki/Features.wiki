@@ -13,7 +13,7 @@ The Teenage Mutant Ninja Turtles project supports the following features:
   # Payload postfix adding.
   # Payload hex encoding.
 
-In this particular project I am providing you with a tool to generate Obfuscated Fuzzing Injection attacks on order to bypass badly implemented Web Application filters (e.t.c SQL Injections, XSS Injections e.t.c). The tool takes as an input the option and a file name and spits the obfuscated file as an output.
+teenage-mutant-ninja-turtles is providing you with an easy to generate Obfuscated Fuzzing payloads in order to bypass badly implemented Web Application filters (e.t.c SQL Injection filters, XSS Injections filters e.t.c). The tool takes as an input an option and a file name and spits out a file with the obfuscated strings.
 
 *Functions that mutate the original payload file*
 
