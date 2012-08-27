@@ -1,6 +1,5 @@
-----
+
 * Table of contents *
-----
   * [Introduction]
   * [Features]
   * [Tutorial]
