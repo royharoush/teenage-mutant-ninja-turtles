@@ -4,5 +4,5 @@
   * [Introduction]
   * [Features]
   * [Tutorial]
-  * [Downloading Installing]
+  * [Installing]
   * [Contribute]
