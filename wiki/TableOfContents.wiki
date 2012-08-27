@@ -1,5 +1,5 @@
   * [Introduction]
   * [Features]
-  * [How to..]
+  * [Tutorial]
   * [Downloading Installing]
   * [Contribute]
