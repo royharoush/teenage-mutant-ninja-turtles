@@ -1,3 +1,5 @@
   * [Introduction]
-  * Features
-  * Future releases
+  * [Features]
+  * [How to..]
+  * [Downloading Installing]
+  * [Contribute]
