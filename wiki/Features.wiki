@@ -2,12 +2,207 @@
 = *Features* =
 ----
 
-For these type of attacks there is a tool written by Gerasimos Kassaras (this is me) that can obfuscate SQL payloads (and other payloads), it is the Teenage Mutant Ninja Turtle tool.
+For SQL injection attack types described in the introduction page there is a tool written by Gerasimos Kassaras (this is me) that can obfuscate SQL payloads (and other payloads), it is the Teenage Mutant Ninja Turtle tool.
 
-The Teenage Mutant Ninja Turtles project is three things: 
+The Teenage Mutant Ninja Turtles project supports the following features: 
 
-  # A Web Application payload database (heavily based on fuzzdb project for now)
-  # A Web Application error database.
-  # A Web Application payload mutator.
+  # Payload de-duplication.
+  # Payload base64 encoding.
+  # Payload url encoding.
+  # Payload suffix adding.
+  # Payload postfix adding.
+  # Payload hex encoding.
 
 In this particular project I am providing you with a tool to generate Obfuscated Fuzzing Injection attacks on order to bypass badly implemented Web Application filters (e.t.c SQL Injections, XSS Injections e.t.c). The tool takes as an input the option and a file name and spits the obfuscated file as an output.
+
+*Functions that mutate the original payload file*
+
+This function does not do any payload obsufiscation the de-duplication (e.g. removes double lines):
+
+{{{
+
+def deduplicate(_payloadList):
+ 
+ currentTime = getTime()+'_'
+ 
+ _mutatePayloadFile = currentTime+"deduplicatedPayloads.lst"
+ _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
+ 
+ _deduplictedList = list(set(_payloadList))
+ 
+ for line in _deduplictedList:
+  _mutatePayloadFileObj.write(line)
+  
+ _mutatePayloadFileObj.close()
+
+}}}
+
+This function adds case variation:
+
+{{{
+
+def caseVarietionAdder(_payloadList): # Adding case variation
+
+ _addVarietion1 = re.compile( '(select|SELECT)')
+ _addVarietion2 = re.compile( '(insert|INSERT)')
+ _addVarietion3 = re.compile( '(update|UPDATE)')
+ _addVarietion4 = re.compile( '(version|VERSION)')
+ _addVarietion5 = re.compile( '(union|UNION)')
+ _addVarietion6 = re.compile( '(exec|EXEC)')
+ _addVarietion7 = re.compile( '(null|NULL)')
+ _addVarietion8 = re.compile( '(value|VALUE)')
+ _addVarietion9 = re.compile( '(CASE|case)')
+ _addVarietion10 = re.compile( '(drop|DROP)')
+ _addVarietion11 = re.compile( '(create|CREATE)')
+ _addVarietion12 = re.compile( '(tablespace|TABLESPACE)')
+
+ currentTime = getTime()+'_'
+ 
+ _mutatePayloadFile = currentTime+"caseVariationPayloads.lst"
+ _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
+ 
+ for _payloadline in _payloadList: 
+   _mutated1 = _addVarietion1.sub( 'SeLeCt', _payloadline, count=0)
+   _mutated2 = _addVarietion2.sub( 'InSeRt', _mutated1, count=0)
+   _mutated3 = _addVarietion3.sub( 'UpDaTe', _mutated2, count=0)
+   _mutated4 = _addVarietion4.sub( 'VeRsIoN', _mutated3, count=0)
+   _mutated5 = _addVarietion5.sub( 'UnIoN', _mutated4, count=0)
+   _mutated6 = _addVarietion6.sub( 'ExEc', _mutated5, count=0)
+   _mutated7 = _addVarietion7.sub( 'NuLl', _mutated6, count=0)
+   _mutated8 = _addVarietion8.sub( 'VaLuE', _mutated7, count=0)
+   _mutated9 = _addVarietion9.sub( 'CaSe', _mutated8, count=0)
+   _mutated10 = _addVarietion10.sub( 'DrOp', _mutated9, count=0)
+   _mutated11 = _addVarietion11.sub( 'CrEaTe', _mutated10, count=0)
+   _mutated12 = _addVarietion12.sub( 'TaBlEsPaCe', _mutated11, count=0)
+   _mutated13 = _mutated12
+   _mutatePayloadFileObj.write( _mutated13 +'\n')
+
+ _mutatePayloadFileObj.close()
+
+}}}
+
+This function adds suffixes e.g. %00 etc :
+
+{{{
+
+def suffixAdder(_payloadList): # Adding suffixes
+
+ currentTime = getTime()+'_'
+ 
+ _mutatePayloadFile = currentTime+"suffixedPayloads.lst"
+ _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
+
+ _suffixElementsFile = suffixFile
+ _suffixElementObj = open(_suffixElementsFile,"r")
+    
+ _suffixList = _suffixElementObj.readlines()
+ 
+ for _suffix in _suffixList: 
+  for _payloadline in _payloadList:
+   _mutatePayloadFileObj.write( _suffix.rstrip() + _payloadline +'\n')
+
+ _mutatePayloadFileObj.close()
+
+}}}
+
+This function adds postfixes e.g. ); -- etc :
+
+{{{
+
+def postfixAdder(_payloadList): # Adding postfixes
+
+ currentTime = getTime()+'_'
+
+ _mutatePayloadFile = currentTime = getTime()+'_'+"postfixedPayloads.lst"
+ _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
+
+ _postfixElementsFile = postfixFile
+ _postfixElementObj = open(_postfixElementsFile,"r")
+    
+ _postfixList = _postfixElementObj.readlines()
+ 
+ for _postfix in _postfixList: 
+  for _payloadline in _payloadList:
+    _mutatePayloadFileObj.write( _payloadline.rstrip() + _postfix + "\n")
+
+ _mutatePayloadFileObj.close()
+
+}}}
+
+This function does url encoding:
+
+{{{
+
+def urlEncoder(_payloadList): # Do url encoding 
+
+ currentTime = getTime()+'_'
+
+ _mutatePayloadFile = currentTime = getTime()+'_'+"urlEncodedPayloads.lst"
+ _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
+ 
+ for _payloadline in _payloadList:
+  _mutatePayloadFileObj.write((urllib.urlencode({'q':_payloadline})+'\n').replace("q=", ""))
+
+ _mutatePayloadFileObj.close()
+
+}}}
+
+This function base 64 encoding:
+
+{{{
+
+def base64Encoder(_payloadList): # Adding suffix 
+
+ currentTime = getTime()+'_'
+ 
+ _mutatePayloadFile = currentTime+"base64EncodedPayloads.lst"
+ _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
+ 
+ for _payloadline in _payloadList:
+  _mutatePayloadFileObj.write(base64.b64encode(_payloadline)+'\n')
+
+ _mutatePayloadFileObj.close()
+
+}}}
+
+This function does hexadecimal encoding:
+
+{{{
+
+def hexEncoder(_payloadList): # Adding suffix 
+
+ currentTime = getTime()+'_'
+
+ _mutatePayloadFile =  currentTime = getTime()+'_'+"hexEncodedPayloads.lst"
+ _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
+ 
+ for _payloadline in _payloadList:
+  _mutatePayloadFileObj.write((str(_payloadline)).encode("Hex")+'\n')
+
+ _mutatePayloadFileObj.close()
+
+}}}
+
+This function does whitespace filling:
+
+{{{
+
+def replacer(_payloadList): # Filling the gaps 
+
+ currentTime = getTime()+'_'
+
+ _mutatePayloadFile = currentTime+"spaceFilledPayloads.lst"
+ _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
+
+ _space_FillerElementsFile = fillerFile
+ _space_FillerElementObj = open(_space_FillerElementsFile,"r")
+    
+ _space_FillerList = _space_FillerElementObj.readlines()
+ 
+ for _space_Filler in _space_FillerList: 
+  for _payloadline in _payloadList:
+   _mutatePayloadFileObj.write(( _payloadline + '\n' ).replace(" ",_space_Filler.rstrip()))
+
+ _mutatePayloadFileObj.close()
+
+}}}
