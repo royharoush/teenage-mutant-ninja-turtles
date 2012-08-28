@@ -99,7 +99,7 @@ def suffixAdder(_payloadList): # Adding suffixes
  
  for _suffix in _suffixList: 
   for _payloadline in _payloadList:
-   _mutatePayloadFileObj.write( _suffix.rstrip() + _payloadline +'\n')
+   _mutatePayloadFileObj.write( _suffix.rstrip() + _payloadline)
 
  _mutatePayloadFileObj.close()
 
@@ -123,7 +123,7 @@ def postfixAdder(_payloadList): # Adding postfixes
  
  for _postfix in _postfixList: 
   for _payloadline in _payloadList:
-    _mutatePayloadFileObj.write( _payloadline.rstrip() + _postfix + "\n")
+    _mutatePayloadFileObj.write( _payloadline.rstrip() + _postfix)
 
  _mutatePayloadFileObj.close()
 
@@ -141,7 +141,7 @@ def urlEncoder(_payloadList): # Do url encoding
  _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
  
  for _payloadline in _payloadList:
-  _mutatePayloadFileObj.write((urllib.urlencode({'q':_payloadline})+'\n').replace("q=", ""))
+  _mutatePayloadFileObj.write((urllib.urlencode({'q':_payloadline})).replace("q=", ""))
 
  _mutatePayloadFileObj.close()
 
