@@ -1,6 +1,6 @@
-Just execute the script and type help help at the option command line prompt:
+Just execute the script and type help at the option command line prompt:
 
-*Usage: Type a single option then press enter type filename press enter again for help type help for the turtle type ban!*
+*Usage: Type a single option then press enter type file name press enter again for help type help for the turtle type ban!*
 
 Enter option: help
 
@@ -34,6 +34,7 @@ Bye bye...
 Example script execution for generating suffixed SQL injection payloads:
 
 root# ./tmntv1.2.py 
+
 Usage: Type a single option then press enter type filename press enter again for help type help for the turtle type ban!
 
 
@@ -45,4 +46,40 @@ Enter filename: p.txt
 Payload is being generated please wait...
 
 Payload mutation is finished enjoy...
+Bye bye...
+
+----
+root# ./tmntv1.2.py
+
+*Usage: Type a single option then press enter type filename press enter again for help type help for the turtle type ban!*
+
+
+
+Enter option: ban
+
+
+ I am handsome turtle...
+                                       ___-------___
+                                   _-~~             ~~-_
+                               _-~                    /~-_
+             /^\__/^\         /~  \                   /    '
+           /|  O|| O|        /      \_______________/        '
+          | |___||__|      /       /                \          '
+          |          \    /      /                    \          '
+          |   (_______) /______/                        \_________ '
+          |         / /         \                      /            '
+           \         \^\         \                  /               \     /
+             \         ||           \______________/      _-_       //\__//
+               \       ||------_-~~-_ ------------- \ --/~   ~\    || __/
+                 ~-----||====/~     |==================|       |/~~~~~
+                  (_(__/  ./     /                    \_\      \.
+                         (_(___/                         \_____)_)
+------------------------------------------------------------------------------
+
+ Author: rekcahemal Free Industries
+ Feedback/Bugs : g.kassaras@gmail.com
+ Blog : http://blog.elusivethoughts.org
+ Twitter: @lamehacker
+------------------------------------------------------------------------------
+
 Bye bye...
