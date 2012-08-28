@@ -5,11 +5,14 @@ The purpose of this page is to provide information about the resources used to c
 
 == Payload Taken From Internet Links ==
 
-http://code.google.com/p/fuzzdb/
-http://code.google.com/p/sqlifuzzer/
-http://code.google.com/p/the-manipulator/
+  # http://code.google.com/p/fuzzdb/
+  # http://code.google.com/p/sqlifuzzer/
+  # http://code.google.com/p/the-manipulator/
 
 
 == Payload Taken From Books ==
+
+  # The Web Application Hacker’s Handbook (Second Edition)
+  # SQL Injection Attack and defence (First Edition)
 
 == Payloads Taken From Papers ==
