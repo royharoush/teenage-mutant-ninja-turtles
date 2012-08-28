@@ -1,0 +1,15 @@
+= References =
+
+The purpose of this page is to provide information about the resources used to collect the payloads and honor the people that helped me write the tool and collect the payloads.   
+
+
+== Payload Taken From Internet Links ==
+
+http://code.google.com/p/fuzzdb/
+http://code.google.com/p/sqlifuzzer/
+http://code.google.com/p/the-manipulator/
+
+
+== Payload Taken From Books ==
+
+== Payloads Taken From Papers ==
