@@ -1,4 +1,5 @@
 = References =
+----
 
 The purpose of this page is to provide information about the resources used to collect the payloads and honor the people that helped me write the tool and collect the payloads.   
 
@@ -13,6 +14,6 @@ The purpose of this page is to provide information about the resources used to c
 == Payload Taken From Books ==
 
   # The Web Application Hacker’s Handbook (Second Edition)
-  # SQL Injection Attack and defence (First Edition)
+  # SQL Injection Attack and defense (First Edition)
 
 == Payloads Taken From Papers ==
