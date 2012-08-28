@@ -6,14 +6,24 @@ The purpose of this page is to provide information about the resources used to c
 
 == Payload Taken From Internet Links ==
 
+Payloads extracted from links found in various internet places:
+
   # http://code.google.com/p/fuzzdb/
   # http://code.google.com/p/sqlifuzzer/
   # http://code.google.com/p/the-manipulator/
-
+  # http://pentestmonkey.net/
+  # http://ferruh.mavituna.com/sql-injection-cheatsheet-oku/
+  # http://ha.ckers.org/sqlinjection/
 
 == Payload Taken From Books ==
+
+Payloads extracted from papers found in various internet places:
 
   # The Web Application Hacker’s Handbook (Second Edition)
   # SQL Injection Attack and defense (First Edition)
 
 == Payloads Taken From Papers ==
+
+Payloads extracted from papers found in various internet places:
+
+  # http://www.exploit-db.com/papers/17934/
