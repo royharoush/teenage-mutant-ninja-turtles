@@ -1,7 +1,7 @@
-
 * Table of contents *
   * [Introduction]
   * [Features]
   * [Tutorial]
+  * [References]
   * [Installing]
   * [Contribute]
