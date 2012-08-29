@@ -2,7 +2,7 @@
   * [Introduction]
   * [Features Features]
   * [Tutorial]
-      *[ScriptUsage Script Usage] 
+      *[ScriptUsage] 
       *[BasicObfuscation] 
       *[AdvancedObfuscation] 
   * [References]
