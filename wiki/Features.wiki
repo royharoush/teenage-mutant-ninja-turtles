@@ -93,7 +93,7 @@ def caseVariationAdder(_payloadList): # Adding case variation
  _mutatePayloadFileObj.close()
 
 }}}
-
+----
 Example of Case Variation Adder:
 
 Input payload: ' union (select @@version) --
@@ -125,7 +125,7 @@ def suffixAdder(_payloadList): # Adding suffixes
  _mutatePayloadFileObj.close()
 
 }}}
-
+----
 Example of Suffix Adder:
 
 Input payload: ' union (select @@version) --
@@ -157,8 +157,7 @@ def postfixAdder(_payloadList): # Adding postfixes
  _mutatePayloadFileObj.close()
 
 }}}
-
-
+----
 Example of Postfix Adder:
 
 Input payload: ' union (select @@version) --
@@ -184,8 +183,7 @@ def urlEncoder(_payloadList): # Do url encoding
  _mutatePayloadFileObj.close()
 
 }}}
-
-
+----
 Example of URL Encoder:
 
 Input payload: ' union (select @@version) --
@@ -211,8 +209,7 @@ def base64Encoder(_payloadList): # Adding suffix
  _mutatePayloadFileObj.close()
 
 }}}
-
-
+----
 Example of base64 Encoder:
 
 Input payload: ' union (select @@version) --
@@ -238,8 +235,7 @@ def hexEncoder(_payloadList): # Adding suffix
  _mutatePayloadFileObj.close()
 
 }}}
-
-
+----
 Example of Hexadecimal Encoder:
 
 Input payload: ' union (select @@version) --
@@ -271,8 +267,7 @@ def replacer(_payloadList): # Filling the gaps
  _mutatePayloadFileObj.close()
 
 }}}
-
-
+----
 Example of replacer:
 
 Input payload: ' union (select @@version) --
