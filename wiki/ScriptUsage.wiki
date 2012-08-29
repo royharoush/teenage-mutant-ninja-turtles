@@ -1,7 +1,3 @@
-= Tutorial =
-
-This tutorial is going to explain how to perform advanced SQL filter injection bypass using this tool.
-
 == Script usage by example ==
 
 In order to run the script just execute the script by typing ./tmntv1.3.py and type help at the option command prompt the output will exactly that:
