@@ -1,4 +1,3 @@
-#labels tutorial
 ----
 = *Features* =
 ----
