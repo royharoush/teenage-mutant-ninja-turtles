@@ -14,7 +14,7 @@ The Teenage Mutant Ninja Turtles project supports the following features:
   # Payload postfix adding.
   # Payload hex encoding.
 
-The teenage-mutant-ninja-turtles tool is providing you with an easy to generate Obfuscated Fuzzing payloads in order to bypass badly implemented Web Application filters (e.t.c SQL Injection filters, XSS Injections filters e.t.c). The tool takes as an input an option and a file name and spits out a file with the obfuscated strings.
+The teenage-mutant-ninja-turtles tool is providing you with an easy way to generate Obfuscated Fuzzing payloads in order to bypass badly implemented Web Application filters (e.t.c SQL Injection filters, XSS Injections filters e.t.c). The tool takes as an input an option and a file name and spits out a file with the obfuscated strings.
 
 *Functions that mutate the original payload file*
 
@@ -37,14 +37,14 @@ def deduplicate(_payloadList):
  _mutatePayloadFileObj.close()
 
 }}}
-
-Example of the de-duplicator
+----
+Example of the de-duplicator:
 
 Input payload: 
 
-' union (select @@version) --
-' union (select @@version) --
-);' union (select @@version) --
+  # ' union (select @@version) --
+  # ' union (select @@version) --
+  # );' union (select @@version) --
 
 Output payload: ' union (select @@version) --
 
@@ -94,7 +94,7 @@ def caseVariationAdder(_payloadList): # Adding case variation
 
 }}}
 
-Example of Case Variation Adder
+Example of Case Variation Adder:
 
 Input payload: ' union (select @@version) --
 
@@ -126,7 +126,7 @@ def suffixAdder(_payloadList): # Adding suffixes
 
 }}}
 
-Example of Suffix Adder
+Example of Suffix Adder:
 
 Input payload: ' union (select @@version) --
 
@@ -159,7 +159,7 @@ def postfixAdder(_payloadList): # Adding postfixes
 }}}
 
 
-Example of Postfix Adder
+Example of Postfix Adder:
 
 Input payload: ' union (select @@version) --
 
@@ -186,7 +186,7 @@ def urlEncoder(_payloadList): # Do url encoding
 }}}
 
 
-Example of URL Encoder
+Example of URL Encoder:
 
 Input payload: ' union (select @@version) --
 
@@ -213,7 +213,7 @@ def base64Encoder(_payloadList): # Adding suffix
 }}}
 
 
-Example of base64 Encoder
+Example of base64 Encoder:
 
 Input payload: ' union (select @@version) --
 
@@ -240,7 +240,7 @@ def hexEncoder(_payloadList): # Adding suffix
 }}}
 
 
-Example of Hexadecimal Encoder
+Example of Hexadecimal Encoder:
 
 Input payload: ' union (select @@version) --
 
@@ -273,7 +273,7 @@ def replacer(_payloadList): # Filling the gaps
 }}}
 
 
-Example of replacer
+Example of replacer:
 
 Input payload: ' union (select @@version) --
 
