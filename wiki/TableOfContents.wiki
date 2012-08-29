@@ -1,8 +1,8 @@
 * Table of contents *
   * [Introduction]
-  * [Features]
+  * [Features Features]
   * [Tutorial]
-      *[ScriptUsage] 
+      *[ScriptUsage Script Usage] 
       *[BasicObfuscation] 
       *[AdvancedObfuscation] 
   * [References]
