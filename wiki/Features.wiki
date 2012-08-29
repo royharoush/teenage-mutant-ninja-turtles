@@ -38,7 +38,7 @@ def deduplicate(_payloadList):
 
 }}}
 ----
-Example of the de-duplicator:
+  *Example of the de-duplicator:
 
 Input payload: 
 
@@ -94,7 +94,7 @@ def caseVariationAdder(_payloadList): # Adding case variation
 
 }}}
 ----
-Example of Case Variation Adder:
+  * Example of Case Variation Adder:
 
 Input payload: ' union (select @@version) --
 
@@ -126,7 +126,7 @@ def suffixAdder(_payloadList): # Adding suffixes
 
 }}}
 ----
-Example of Suffix Adder:
+  *Example of Suffix Adder:
 
 Input payload: ' union (select @@version) --
 
@@ -158,7 +158,7 @@ def postfixAdder(_payloadList): # Adding postfixes
 
 }}}
 ----
-Example of Postfix Adder:
+  *Example of Postfix Adder:
 
 Input payload: ' union (select @@version) --
 
@@ -184,7 +184,7 @@ def urlEncoder(_payloadList): # Do url encoding
 
 }}}
 ----
-Example of URL Encoder:
+  *Example of URL Encoder:
 
 Input payload: ' union (select @@version) --
 
@@ -210,7 +210,7 @@ def base64Encoder(_payloadList): # Adding suffix
 
 }}}
 ----
-Example of base64 Encoder:
+  *Example of base64 Encoder:
 
 Input payload: ' union (select @@version) --
 
@@ -236,13 +236,13 @@ def hexEncoder(_payloadList): # Adding suffix
 
 }}}
 ----
-Example of Hexadecimal Encoder:
+  *Example of Hexadecimal Encoder:
 
 Input payload: ' union (select @@version) --
 
 Output payload: 2720756e696f6e202873656c65637420404076657273696f6e29202d2d
 
-Note: The tmntv1.4 tool will take as an input a file. 
+*Note*: The tmntv1.4 tool will take as an input a file. 
 
 This function does white space filling:
 
@@ -268,7 +268,7 @@ def replacer(_payloadList): # Filling the gaps
 
 }}}
 ----
-Example of replacer:
+*Example of replacer:
 
 Input payload: ' union (select @@version) --
 
