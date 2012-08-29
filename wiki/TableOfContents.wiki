@@ -3,5 +3,4 @@
   * [Features]
   * [Tutorial]
   * [References]
-  * [Installing]
   * [Contribute]
