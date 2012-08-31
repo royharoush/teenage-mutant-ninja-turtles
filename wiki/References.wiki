@@ -14,6 +14,8 @@ Payloads extracted from links found in various internet places:
   # http://pentestmonkey.net/
   # http://ferruh.mavituna.com/sql-injection-cheatsheet-oku/
   # http://ha.ckers.org/sqlinjection/
+  # http://bernardodamele.blogspot.ie/
+  # http://www.diigo.com/list/fmavituna/sql-injection-cheat-sheets
 
 == Payload Taken From Books ==
 
