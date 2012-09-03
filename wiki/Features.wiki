@@ -17,8 +17,8 @@ The teenage-mutant-ninja-turtles tool is providing you with an easy way to gener
 
 *Functions that mutate the original payload file*
 
-This function does not do any payload obfuscation only does DE-duplication (e.g. removes double lines):
-
+This function does not do any payload obfuscation, it only does payload line DE-duplication (e.g. removes double lines):
+----
 {{{
 
 def deduplicate(_payloadList):
@@ -108,7 +108,7 @@ Output payload file content: ' UnIoN (SeLeCt @@VeRsIoN) --
 
 *Note*: The tmntv1.4 tool will take as an input a file, it will then load SQL keywords from the CharContainer/sql_Keyword_Container.lst file and replace and generate a payload file with SQL keywords with case variation.
 
-This function adds suffixes e.g. %00 etc :
+This function adds suffixes such as );-- :
 
 {{{
 
@@ -140,7 +140,7 @@ Output payload file content: );' union (select @@version) --
 
 *Note*: The tmntv1.4 tool will take as an input a file.Also the Suffix Adder will read through the Suffix File and add all listed suffixes.  
 
-This function adds postfixes e.g. ); -- etc :
+This function adds postfixes e.g. %00 etc :
 
 {{{
 
