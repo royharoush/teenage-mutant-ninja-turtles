@@ -103,7 +103,7 @@ Input payload: ' union (select @@version) --
 
 Output payload: ' UnIoN (SeLeCt @@VeRsIoN) --
 
-*Note*: The tmntv1.4 tool will take as an input a file, it will then load SQL keywords from the CharContainer/sql_Keyword_Container.lst file and replace and generate a payload file with SQL keywords with case varietion.
+*Note*: The tmntv1.4 tool will take as an input a file, it will then load SQL keywords from the CharContainer/sql_Keyword_Container.lst file and replace and generate a payload file with SQL keywords with case variation.
 
 This function adds suffixes e.g. %00 etc :
 
