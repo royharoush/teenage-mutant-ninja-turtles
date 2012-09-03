@@ -16,6 +16,7 @@ Payloads extracted from links found in various internet places:
   # http://ha.ckers.org/sqlinjection/
   # http://bernardodamele.blogspot.ie/
   # http://www.diigo.com/list/fmavituna/sql-injection-cheat-sheets
+  # http://securityhorror.blogspot.com/2012/06/obfuscate-sql-fuzzing-for-fun-and.html
 
 == Payload Taken From Books ==
 
