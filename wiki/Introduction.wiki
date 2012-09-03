@@ -4,17 +4,21 @@
 
 Now days cyber criminals are increasingly using automated SQL injection attacks powered by botnets to hit vulnerable systems. SQL injection attacks is the prevalent way of attacking front-end Web applications and back-end databases to compromise data confidentiality. Recently published reports by the Web Hacking Incidents Database (WHID) shows SQL injections as the top attack vector, making up 19 percent of all security breaches examined by WHID.  Open Web Application Security Project (OWASP) top 10 risk categorization chart, rates SQL injection risk as number one threat along with operating system command injection and LDAP injection attack.
 
+===Why badly implemented SQL filters exist===
+
 But why does this happen? Have you ever thought about it? Well the answer is easy, we're seeing such an increase in SQL injection incidents because we have an "industrialization of hacking". SQL injection attacks are generally carried out by typing malformed "SQL commands into front-end Web application input boxes" that are tied to database accounts in order to trick the database into offering more access to information than the developer intended. 
 
-*Why SQL injection attacks still exist*
+===Why SQL injection attacks still exist===
 
 SQL injection attacks happen because of badly implemented Web Application filters, meaning that the web application will often fail to properly sanitize malicious user input.  You can usually find this type of badly implemented SQL injection filters in outsourced web applications to India, Asia or other possibly third world countries, that developers are not aware of what SQL injection proper filtering is. Most of the time well known large organizations from the financial sector will create a large team of functional and security testers and then outsource the project in order to reduce the development cost, at the same time they would try to maintain and increase the control of the web application development progress and quality assurance process. 
 
-That is wrong because SQL injection attacks can be obfuscated and relatively easy bypass these quick fixes. Obfuscating SQL injections attacks nowadays is a de facto standard for penetration testing and has been used by well known web malware such as ASPRox. The Asprox botnet (Discovered around 2008), also known by its aliases Badsrc and Aseljo, is a botnet mostly involved in phishing scams and performing SQL Injections into websites in order to spread Malware. Since its discovery in 2008 the Asprox botnet has been involved in multiple high-profile attacks on various websites in order to spread malware. The botnet itself consists of roughly 15,000 infected computers as of May, 2008 although the size of the botnet itself is highly variable as the controllers of the botnet have been known to deliberately shrink (and later regrow) their botnet in order to prevent more aggressive countermeasures from the IT Community.
+===Why SQL obfuscation exist===  
 
-*Why obfuscate SQL injection*
+SQL injection attacks can be obfuscated and relatively easy bypass these quick fixes. Obfuscating SQL injections attacks nowadays is a de facto standard for penetration testing and has been used by well known web malware such as ASPRox. The Asprox botnet (Discovered around 2008), also known by its aliases Badsrc and Aseljo, is a botnet mostly involved in phishing scams and performing SQL Injections into websites in order to spread Malware. Since its discovery in 2008 the Asprox botnet has been involved in multiple high-profile attacks on various websites in order to spread malware. The botnet itself consists of roughly 15,000 infected computers as of May, 2008 although the size of the botnet itself is highly variable as the controllers of the botnet have been known to deliberately shrink (and later regrow) their botnet in order to prevent more aggressive countermeasures from the IT Community.
 
-This article is going to talk about Obfuscated SQL Injection Fuzzing. Nowadays all high profile sites found in financial and telecommunication sector use filters to filter out all types of vulnerabilities such as SQL, XSS, XXE, Http Header Injection e.t.c. In this particular article we are going to talk only about Obfuscated SQL Fuzzing Injection attacks.
+=== Purpose of this project===
+
+This post is going to talk about Obfuscated SQL Injection Fuzzing. Nowadays all high profile sites found in financial and telecommunication sector use filters to filter out all types of vulnerabilities such as SQL, XSS, XXE, Http Header Injection e.t.c. In this particular article we are going to talk only about Obfuscated SQL Fuzzing Injection attacks.
 
 First of all what obfuscate means based on the Dictionary.com:
 
@@ -24,7 +28,7 @@ _"To confuse, bewilder, or stupefy.To make obscure or unclear: to obfuscate a pr
 
 Web applications frequently employ input filters that are designed to defend against common attacks, including SQL injection. These filters may exist within the application's own code, in the form of custom input validation, or may be implemented outside the application, in the form of Web application firewalls (WAF's) or intrusion prevention systems (IPS's). Usually this types of filters are called virtual patches. After you read this article should be able to understand that virtual patching is not going to protect you from advanced attackers.
 
-*Common types of SQL filters*
+===Common types of SQL filters===
 
 In the context of SQL injection attacks, the most interesting filters you are likely to encounter are those which attempt to block any input containing one or more of the following:
 
@@ -32,4 +36,4 @@ In the context of SQL injection attacks, the most interesting filters you are li
   # Specific individual characters, such as quotation marks or hyphens 
   # White-spaces 
 
-You may also encounter filters which, rather than blocking input containing the items in the preceding list, attempt to modify the input to make it safe, either by encoding or escaping problematic characters or by stripping the offending items from the input and processing what is left in a normal way.
+You may also encounter filters which, rather than blocking input containing the items in the preceding list, attempt to modify the input to make it safe, either by encoding or escaping problematic characters or by stripping the offending items from the input and processing what is left in a normal way. For more information about practically bypassing filters see features section.  
