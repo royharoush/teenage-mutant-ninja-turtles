@@ -8,17 +8,17 @@ Now days cyber criminals are increasingly using automated SQL injection attacks 
 
 But why does this happen? Have you ever thought about it? Well the answer is easy, we're seeing such an increase in SQL injection incidents because we have an "industrialization of hacking". SQL injection attacks are generally carried out by typing malformed "SQL commands into front-end Web application input boxes" that are tied to database accounts in order to trick the database into offering more access to information than the developer intended. 
 
-===Why SQL injection attacks still exist===
+===Why SQL injection attacks exist===
 
 SQL injection attacks happen because of badly implemented Web Application filters, meaning that the web application will often fail to properly sanitize malicious user input.  You can usually find this type of badly implemented SQL injection filters in outsourced web applications to India, Asia or other possibly third world countries, that developers are not aware of what SQL injection proper filtering is. Most of the time well known large organizations from the financial sector will create a large team of functional and security testers and then outsource the project in order to reduce the development cost, at the same time they would try to maintain and increase the control of the web application development progress and quality assurance process. 
 
-===Why SQL obfuscation exist===  
+===Why use SQL obfuscation===  
 
-SQL injection attacks can be obfuscated and relatively easy bypass these quick fixes. Obfuscating SQL injections attacks nowadays is a de facto standard for penetration testing and has been used by well known web malware such as ASPRox. The Asprox botnet (Discovered around 2008), also known by its aliases Badsrc and Aseljo, is a botnet mostly involved in phishing scams and performing SQL Injections into websites in order to spread Malware. Since its discovery in 2008 the Asprox botnet has been involved in multiple high-profile attacks on various websites in order to spread malware. The botnet itself consists of roughly 15,000 infected computers as of May, 2008 although the size of the botnet itself is highly variable as the controllers of the botnet have been known to deliberately shrink (and later regrow) their botnet in order to prevent more aggressive countermeasures from the IT Community.
+SQL injection attacks can be obfuscated and relatively easy bypass these bad filter implementations. Obfuscating SQL injections attacks nowadays is a de facto standard for penetration testing and has been used by well known web malware such as ASPRox. The Asprox botnet (Discovered around 2008), also known by its aliases Badsrc and Aseljo, is a botnet mostly involved in phishing scams and performing SQL Injections into websites in order to spread Malware. Since its discovery in 2008 the Asprox botnet has been involved in multiple high-profile attacks on various websites in order to spread malware. The botnet itself consists of roughly 15,000 infected computers as of May, 2008 although the size of the botnet itself is highly variable as the controllers of the botnet have been known to deliberately shrink (and later regrow) their botnet in order to prevent more aggressive countermeasures from the IT Community.
 
 === Purpose of this project===
 
-This post is going to talk about Obfuscated SQL Injection Fuzzing. Nowadays all high profile sites found in financial and telecommunication sector use filters to filter out all types of vulnerabilities such as SQL, XSS, XXE, Http Header Injection e.t.c. In this particular article we are going to talk only about Obfuscated SQL Fuzzing Injection attacks.
+This project is about Obfuscated SQL Injection Fuzzing. Nowadays all high profile sites found in financial and telecommunication sector use filters to filter out all types of vulnerabilities such as SQL, XSS, XXE, Http Header Injection e.t.c. In this particular article we are going to talk only about Obfuscated SQL Fuzzing Injection attacks.
 
 First of all what obfuscate means based on the Dictionary.com:
 
