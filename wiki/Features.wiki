@@ -57,6 +57,28 @@ This function adds case variation:
 ----
 {{{
 
+def addCaseVarietionToKeyword(_sqlKeyword):
+
+ list1 = list(_sqlKeyword)
+
+ for i in range(len(list1)):
+  if i % 2 == 0:
+   list1[i] = (list1[i].upper())
+  else:
+   list1[i] = (list1[i].lower())
+
+ _sqlKeyword = ''.join(list1)
+
+ return str(_sqlKeyword).rstrip()
+
+def searchPayloadLine(_keywordList, _payloadLine):
+    # Search payload line with all SQL keywords contained in file CharContainer
+    for _keyword in _keywordList:
+        if re.search(_keyword,_payloadLine):
+            return True
+    else:
+        return False 
+
 def caseVarietionAdder(_payloadList): # Adding case variation
  
  checkDirectoryExitstance() 
@@ -107,14 +129,16 @@ Input payload file content: ' union (select @@version) --
 
 Output payload file content: ' UnIoN (SeLeCt @@VeRsIoN) --
 
-*Note*: The tmntv1.4 tool will take as an input a file, it will then load SQL keywords from the CharContainer/sql_Keyword_Container.lst file and replace and generate a payload file with SQL keywords with case variation.
+*Note*: The tmntv1.4 tool will take as an input a file, it will then load SQL keywords from the CharContainer/sql_Keyword_Container.lst file and generate a payload file with SQL keywords having case variation.
 
 This function adds suffixes such as );-- :
 ----
 {{{
 
 def suffixAdder(_payloadList): # Adding suffixes
-
+ 
+ checkDirectoryExitstance() 
+ 
  currentTime = getTime()+'_'
  
  _mutatePayloadFile = currentTime+"suffixedPayloads.lst"
@@ -127,7 +151,7 @@ def suffixAdder(_payloadList): # Adding suffixes
  
  for _suffix in _suffixList: 
   for _payloadline in _payloadList:
-   _mutatePayloadFileObj.write( _suffix.rstrip() + _payloadline)
+   _mutatePayloadFileObj.write(str(_suffix).rstrip()+str(_payloadline).rstrip()+"\n")
 
  _mutatePayloadFileObj.close()
 
@@ -146,6 +170,8 @@ This function adds postfixes e.g. %00 etc :
 {{{
 
 def postfixAdder(_payloadList): # Adding postfixes
+    
+ checkDirectoryExitstance() 
 
  currentTime = getTime()+'_'
 
@@ -159,8 +185,8 @@ def postfixAdder(_payloadList): # Adding postfixes
  
  for _postfix in _postfixList: 
   for _payloadline in _payloadList:
-    _mutatePayloadFileObj.write( _payloadline.rstrip() + _postfix)
-
+    _mutatePayloadFileObj.write(str(_payloadline).rstrip()+str(_postfix).rstrip()+"\n")
+    
  _mutatePayloadFileObj.close()
 
 }}}
@@ -185,7 +211,7 @@ def urlEncoder(_payloadList): # Do url encoding
  _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
  
  for _payloadline in _payloadList:
-  _mutatePayloadFileObj.write((urllib.urlencode({'q':_payloadline})).replace("q=", "")+"\n")
+  _mutatePayloadFileObj.write((urllib.urlencode({'q':str(_payloadline).rstrip()})).replace("q=", "")+"\n")
 
  _mutatePayloadFileObj.close()
 
@@ -211,7 +237,7 @@ def base64Encoder(_payloadList): # Adding suffix
  _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
  
  for _payloadline in _payloadList:
-  _mutatePayloadFileObj.write(base64.b64encode(_payloadline.rstrip("\n"))+"\n")
+  _mutatePayloadFileObj.write(base64.b64encode(str(_payloadline).rstrip())+"\n")
 
  _mutatePayloadFileObj.close()
 
@@ -237,7 +263,7 @@ def hexEncoder(_payloadList): # Adding suffix
  _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
  
  for _payloadline in _payloadList:
-  _mutatePayloadFileObj.write((str(_payloadline).rstrip("\n")).encode("Hex")+"\n")
+  _mutatePayloadFileObj.write((str(_payloadline).rstrip()).encode("Hex")+"\n")
 
  _mutatePayloadFileObj.close()
 
