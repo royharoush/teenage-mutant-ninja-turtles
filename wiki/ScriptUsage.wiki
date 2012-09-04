@@ -43,3 +43,28 @@ In order to run the script just execute the script by typing ./tmntv(version).py
 
 
 *Note:*The tool after properly executed will generate a file named after the mutation type and the current time so you can track the generated payloads, the file name would look like this Tue04Sep18_15_11_postfixedPayloads.lst.
+
+*Example 3:* Script execution for generating all SQL injection mutations:
+
+||root# ./tmntv(version).py||Command prompt input|| 
+||Usage: Type a single option then press enter type filename press enter again for help type help for the turtle type ban!||Screen output||
+||Enter option: all ||Screen output|| 
+||Enter filename: filename.txt||Screen output||
+||Payload is being generated please wait...||Screen output||
+||----- Payload generated ----||Screen output||
+||----- Payload generated ----||Screen output||
+||----- Payload generated ----||Screen output||
+||----- Payload generated ----||Screen output||
+||----- Payload generated ----||Screen output||
+||----- Payload generated ----||Screen output||
+||----- Payload generated ----||Screen output||
+||Payload mutation is finished enjoy...||Screen output||
+||Bye bye...||Screen output||
+
+
+*Note:*The tool after properly executed will generate a seven files named after the mutation type and the current time so you can track the generated payloads, the file names would look like this: 
+
+  # Tue04Sep18_15_11_postfixedPayloads.lst
+  # Tue04Sep18_15_16_suffixedPayloads.lst
+  # Tue04Sep18_15_21_spaceFilledPayloads.lst
+  # Tue04Sep18_15_26_urlEncodedPayloads.lst
