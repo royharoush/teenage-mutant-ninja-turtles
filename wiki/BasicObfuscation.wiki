@@ -7,8 +7,6 @@ The are numerous ways to by pass SQL injection filters, there even more ways to 
   # Using URL Encoding 
   # Using Dynamic Query Execution 
   # Using Null Bytes 
-  # Using Non-Standard Entry Points
-  # Combine all techniques above 
 
 Take notice that all the above SQL injection filter bypassing techniques are based on the black list filtering mentality, and not the white list filtering logic. This means that bad software development is based in black list filters concept.
 
@@ -140,5 +138,3 @@ However, when the same input is processed by the application, in a managed code 
 ' UNION SELECT password FROM tblUsers WHERE username='admin'--
 
 *Note*: When access is used as a bank end database NULL bytes can be used as SQL query delimiter.
-
-
