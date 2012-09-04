@@ -3,7 +3,7 @@
   * [ScriptUsage Script Usage]
   * [Features Features]
   * [Tutorial]
-      * [Howto How To] 
+      * [Why obfuscate] 
       * [BasicObfuscation Basic payload obfuscation]
       * [AdvancedObfuscation Advanced payload obfuscation]
       * [BurpIntruder1 Obfuscated fuzzing]
