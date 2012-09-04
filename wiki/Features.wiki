@@ -271,7 +271,7 @@ def hexEncoder(_payloadList): # Adding suffix
 
  currentTime = getTime()+'_'
 
- _mutatePayloadFile =  currentTime = getTime()+'_'+"hexEncodedPayloads.lst"
+ _mutatePayloadFile =  currentTime +"hexEncodedPayloads.lst"
  _mutatePayloadFileObj = open(_mutatePayloadFile,"w")
  
  for _payloadline in _payloadList:
