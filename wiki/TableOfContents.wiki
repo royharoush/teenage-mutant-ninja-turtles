@@ -2,8 +2,8 @@
   * [Introduction]
   * [Features Features]
   * [Tutorial]
-      * ScriptUsage 
-      * BasicObfuscation 
-      * AdvancedObfuscation 
+      * Script Usage 
+      * Basic Obfuscation 
+      * Advanced Obfuscation 
   * [References]
   * [Contribute]
