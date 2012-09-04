@@ -7,6 +7,6 @@
       * [BasicObfuscation Basic payload obfuscation]
       * [AdvancedObfuscation Advanced payload obfuscation]
       * [BurpFuzz Obfuscated fuzzing]
-      * [BurpError Result analysis] 
+      * [BurpError Error based analysis] 
   * [References]
   * [Contribute]
