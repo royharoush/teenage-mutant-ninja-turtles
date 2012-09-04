@@ -7,29 +7,19 @@ In order to run the script just execute the script by typing ./tmntv1.3.py and t
 Enter option: help
 
 
-*help*  :  Print help message for script arguments
-
-*sfx*   :  For mutating SQL injection attack strings by adding suffixes to the payloads e.g EXEC, ';-- e.t.c
-
-*pfx*   :  For mutating SQL injection attack strings by adding postfixes to the payloads e.g. --, );-- e.t.c
-
-*url*   :  For mutating SQL injection attack strings by url encoding the payloads
-
-*flr*   :  For mutating SQL injection attack strings by filling the gaps with SQL commends, url encoded space and other special characters
-
-*b64*   :  For mutating attack strings by base 64 encoding the payloads
-
-*hex*   :  For mutating SQL injection attack strings by hex encoding the payloads
-
-*ban*   :  Print ThE script banner
-
-*ver*   :  Print version of the script
-
-*all*   :  Performing all mutations
-
-*ded*   :  Deduplicate all attack strings payloads
-
-*var*   :  For mutating SQL injection attack strings by adding case variation the payloads
+|| *Options* || *Functionality description* ||
+|| *help*    ||   Print help message for script arguments ||
+|| *sfx*     ||   For mutating SQL injection attack strings by adding suffixes to the payloads e.g EXEC, ';-- e.t.c ||
+|| *pfx*     ||   For mutating SQL injection attack strings by adding postfixes to the payloads e.g. --, );-- e.t.c ||
+|| *url*     ||   For mutating SQL injection attack strings by url encoding the payloads ||
+|| *flr*     ||   For mutating SQL injection attack strings by filling the gaps with SQL commends, url encoded space and other special characters ||
+|| *b64*     ||   For mutating attack strings by base 64 encoding the payloads ||
+|| *hex*  ||   For mutating SQL injection attack strings by hex encoding the payloads ||
+|| *ban*  ||   Print ThE script banner ||
+|| *ver*  ||   Print version of the script ||
+|| *all*  ||   Performing all mutations ||
+|| *ded*  ||   Deduplicate all attack strings payloads ||
+|| *var*  ||   For mutating SQL injection attack strings by adding case variation the payloads ||
 
 Bye bye...
 
