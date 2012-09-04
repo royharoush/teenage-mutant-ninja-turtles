@@ -4,7 +4,6 @@ In order to run the script just execute the script by typing ./tmntv(version).py
 
 ||Usage: Type a single option then press enter type file name press enter again for help type help for the turtle type ban!||
 
-
 || *Options* || *Functionality description* ||
 || help    ||   Print help message for script arguments ||
 || sfx     ||   For mutating SQL injection attack strings by adding suffixes to the payloads e.g EXEC, ';-- e.t.c ||
@@ -19,23 +18,15 @@ In order to run the script just execute the script by typing ./tmntv(version).py
 || ded  ||   Deduplicate all attack strings payloads ||
 || var  ||   For mutating SQL injection attack strings by adding case variation the payloads ||
 
-Bye bye...
-
 Example script execution for generating suffixed SQL injection payloads:
 
-root# ./tmntv1.2.py 
+||root# ./tmntv(version).py||Command prompt input|| 
+||Usage: Type a single option then press enter type filename press enter again for help type help for the turtle type ban!||Screen output||
+||Enter option: sfx ||Screen output|| 
+||Enter filename: filename.txt||Screen output||
+||Payload is being generated please wait...||Screen output||
+||Payload mutation is finished enjoy...||Screen output||
+||Bye bye...||Screen output||
 
-Usage: Type a single option then press enter type filename press enter again for help type help for the turtle type ban!
 
-
-
-Enter option: sfx 
-
-
-Enter filename: p.txt
-Payload is being generated please wait...
-
-Payload mutation is finished enjoy...
-Bye bye...
-
-The tool after properly executed will generate a file named after the mutation type and the current time so you can track the generated payloads. 
+*Note:*The tool after properly executed will generate a file named after the mutation type and the current time so you can track the generated payloads. 
