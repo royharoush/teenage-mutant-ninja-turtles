@@ -1,9 +1,10 @@
 * Table of contents *
   * [Introduction]
+  * [ScriptUsage Script Usage]
   * [Features Features]
   * [Tutorial]
-      * ScriptUsage 
-      * BasicObfuscation 
-      * AdvancedObfuscation 
+      * [Howto How To] 
+      * [BasicObfuscation Basic SQL Obfuscation]
+      * [AdvancedObfuscation Advanced SQL Obfuscation] 
   * [References]
   * [Contribute]
