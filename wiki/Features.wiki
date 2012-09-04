@@ -57,6 +57,8 @@ This function adds case variation:
 ----
 {{{
 
+#----------------------------------------------------------------------------------------
+
 def addCaseVarietionToKeyword(_sqlKeyword):
 
  list1 = list(_sqlKeyword)
@@ -71,13 +73,19 @@ def addCaseVarietionToKeyword(_sqlKeyword):
 
  return str(_sqlKeyword).rstrip()
 
+#----------------------------------------------------------------------------------------
+
 def searchPayloadLine(_keywordList, _payloadLine):
     # Search payload line with all SQL keywords contained in file CharContainer
     for _keyword in _keywordList:
-        if re.search(_keyword,_payloadLine):
+        if re.search(_keyword.upper(),_payloadLine):
+            return True
+        if re.search(_keyword.lower(),_payloadLine):
             return True
     else:
         return False 
+
+#----------------------------------------------------------------------------------------
 
 def caseVarietionAdder(_payloadList): # Adding case variation
  
@@ -109,14 +117,18 @@ def caseVarietionAdder(_payloadList): # Adding case variation
  # Write Temporary file with new payloads then filter lines to write to final payload file 
  for _tempLine in  _tempList:
     for _sqlKeywordKey, _sqlKeywordValue  in _sqlKeyWordDictionary.iteritems():
-        if re.search(_sqlKeywordKey,_tempLine):
-            _tempLine = str(_tempLine).replace(_sqlKeywordKey,_sqlKeywordValue)
+        if re.search(_sqlKeywordKey.upper(),_tempLine):
+            _tempLine = str(_tempLine).replace(_sqlKeywordKey.upper(),_sqlKeywordValue)
+
+            if not searchPayloadLine(_searchList,_tempLine):
+                _mutatePayloadFileObj.write(_tempLine)
+            
+        if re.search(_sqlKeywordKey.lower(),_tempLine):
+            _tempLine = str(_tempLine).replace(_sqlKeywordKey.lower(),_sqlKeywordValue)
             
             if not searchPayloadLine(_searchList,_tempLine):
                 _mutatePayloadFileObj.write(_tempLine)
-                print _tempLine
-                print _sqlKeywordKey
- 
+
  _mutatePayloadFileObj = _temp
  _temp.close()
  _mutatePayloadFileObj.close()
