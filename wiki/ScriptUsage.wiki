@@ -18,7 +18,7 @@ In order to run the script just execute the script by typing ./tmntv(version).py
 || ded  ||   Deduplicate all attack strings payloads ||
 || var  ||   For mutating SQL injection attack strings by adding case variation the payloads ||
 
-Example script execution for generating suffixed SQL injection payloads:
+*Example 1:* Script execution for generating suffixed SQL injection payload file:
 
 ||root# ./tmntv(version).py||Command prompt input|| 
 ||Usage: Type a single option then press enter type filename press enter again for help type help for the turtle type ban!||Screen output||
@@ -29,4 +29,17 @@ Example script execution for generating suffixed SQL injection payloads:
 ||Bye bye...||Screen output||
 
 
-*Note:*The tool after properly executed will generate a file named after the mutation type and the current time so you can track the generated payloads. 
+*Note:*The tool after properly executed will generate a file named after the mutation type and the current time so you can track the generated payloads, the file name would look like this Tue04Sep18_15_16_suffixedPayloads.lst. 
+
+*Example 2:* Script execution for generating post fixed SQL injection payload file:
+
+||root# ./tmntv(version).py||Command prompt input|| 
+||Usage: Type a single option then press enter type filename press enter again for help type help for the turtle type ban!||Screen output||
+||Enter option: pfx ||Screen output|| 
+||Enter filename: filename.txt||Screen output||
+||Payload is being generated please wait...||Screen output||
+||Payload mutation is finished enjoy...||Screen output||
+||Bye bye...||Screen output||
+
+
+*Note:*The tool after properly executed will generate a file named after the mutation type and the current time so you can track the generated payloads, the file name would look like this Tue04Sep18_15_11_postfixedPayloads.lst.
