@@ -1,5 +1,5 @@
 ----
-= *Features* =
+== *Features* ==
 ----
 
 For SQL injection attack types described in the introduction page there is a tool written by Gerasimos Kassaras (this is me) that can obfuscate SQL payloads (and other payloads), it is the Teenage Mutant Ninja Turtle tool.
@@ -16,7 +16,7 @@ The Teenage Mutant Ninja Turtles project supports the following features:
 
 The teenage-mutant-ninja-turtles tool is providing you with an easy way to generate Obfuscated Fuzzing payloads in order to bypass badly implemented Web Application filters (e.t.c SQL Injection filters, XSS Injections filters e.t.c). The tool takes as an input an option and a file name and spits out a file with the obfuscated strings.
 
-*Functions that mutate the original payload file*
+== Functions that mutate the original payload file ==
 
 This function does not do any payload obfuscation, it only does payload line DE-duplication (e.g. removes double lines):
 ----
