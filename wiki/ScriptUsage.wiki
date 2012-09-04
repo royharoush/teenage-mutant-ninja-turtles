@@ -7,7 +7,7 @@ In order to run the scripts you would have to have installed python, which by th
 
 *Note* The script will exit after printing this message.
 
-== Script Examples ==
+== Script options ==
 
 The following table shows the help message along with a short explanation of each option.
 
@@ -24,6 +24,8 @@ The following table shows the help message along with a short explanation of eac
 || all  ||   Performing all mutations ||
 || ded  ||   Deduplicate all attack strings payloads ||
 || var  ||   For mutating SQL injection attack strings by adding case variation the payloads ||
+
+== Script Examples ==
 
 *Example 1:* Script execution for generating suffixed SQL injection payload file:
 
