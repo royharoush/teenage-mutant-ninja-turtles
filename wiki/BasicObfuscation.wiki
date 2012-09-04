@@ -7,8 +7,6 @@ The are numerous ways to by pass SQL injection filters, there even more ways to 
   # Using URL Encoding 
   # Using Dynamic Query Execution 
   # Using Null Bytes 
-  # Nesting Stripped Expressions 
-  # Exploiting Truncation 
   # Using Non-Standard Entry Points
   # Combine all techniques above 
 
@@ -142,7 +140,5 @@ However, when the same input is processed by the application, in a managed code 
 ' UNION SELECT password FROM tblUsers WHERE username='admin'--
 
 *Note*: When access is used as a bank end database NULL bytes can be used as SQL query delimiter.
-
-
 
 
