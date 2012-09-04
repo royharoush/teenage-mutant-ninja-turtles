@@ -1,8 +1,8 @@
-== Script usage by example ==
+== Script usage ==
 
 In order to run the script just execute the script by typing ./tmntv1.3.py and type help at the option command prompt the output will exactly that:
 
-*Usage: Type a single option then press enter type file name press enter again for help type help for the turtle type ban!*
+||Usage: Type a single option then press enter type file name press enter again for help type help for the turtle type ban!||
 
 Enter option: help
 
