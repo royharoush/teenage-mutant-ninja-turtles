@@ -62,4 +62,10 @@ After we do that we point the payloads to the proper value:
 
  http://4.bp.blogspot.com/-J3lWJTrsbmA/T4MjPcpvl8I/AAAAAAAAAJA/Qg4mtgfyapU/s1600/burp3.gif 
 
+*Note:* If you see carefully the above image you will see that I am using the sniper mode for the test (best choice when trying to identify initial SQL injection vulnerabilities)
+
+==Epilogue==
+
+This post proved you that you do not need to use string lists such as fuzzdb to test a web application, you can very easily use your own. If you want to test for XSS or XML Injections you have obviously to change the char-set. It would be a very good idea to add some statistical analysis and filter out your list in such a way so that more interesting characters in certain positions appear at the top of the list, meaning that it would be a good idea for example to have single quote at the begging of the string and not the end.  
+
  
