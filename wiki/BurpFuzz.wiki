@@ -31,6 +31,11 @@ A typical workflow using Burp Intruder is as follows:
   # Start the attack and review the detailed results, including all requests made and responses received.
   # Analyze the results to achieve your chosen objective, using customizable filtering and sorting, or by defining your own rules for matching or extracting response data.
 
+== Loading teenage-mutant-ninja-turtles to Burp ==
+
+ 
+
+
 
 
  
