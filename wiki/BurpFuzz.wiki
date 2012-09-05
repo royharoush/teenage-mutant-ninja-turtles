@@ -33,6 +33,10 @@ A typical workflow using Burp Intruder is as follows:
 
 == Loading teenage-mutant-ninja-turtles to Burp ==
 
+In order to load teenage-mutant-ninja-turtles to burp you do:
+
+Double Click Burp Jar -> Burp Intruder TAB -> Load at the payload section
+
  
 
 
