@@ -64,7 +64,7 @@ After we do that we point the payloads to the proper value:
 
 *Note:* If you see carefully the above image you will see that I am using the sniper mode for the test (best choice when trying to identify initial SQL injection vulnerabilities)
 
-==Different mode of Burp Intruder==
+==Different modes of Burp Intruder==
 
 *Sniper*
 
