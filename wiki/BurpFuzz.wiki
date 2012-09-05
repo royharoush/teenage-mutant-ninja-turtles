@@ -36,7 +36,7 @@ A typical workflow using Burp Intruder is as follows:
 First we mutate a payload with teenage-mutant-ninja-turtles by following the steps below:
 
 
-*Example:* Script execution for generating post fixed SQL injection payload file:
+*Example:* Script execution for mutating post fixed SQL injection payload file:
 
 ||root# ./tmntv(version).py||Command prompt input|| 
 ||Usage: Type a single option then press enter type filename press enter again for help type help for the turtle type ban!||Screen output||
@@ -49,7 +49,7 @@ First we mutate a payload with teenage-mutant-ninja-turtles by following the ste
 
 Then in order to load teenage-mutant-ninja-turtles to burp you have to go:
 
-Burp Intruder TAB -> payloads TAB -> Click load button
+||Burp Intruder TAB -> payloads TAB -> Click load button||
 
 
  http://4.bp.blogspot.com/-rnROxAkdPAE/T4MiWSFPXCI/AAAAAAAAAIw/HSvMbjjgQV8/s1600/burp.gif
@@ -58,6 +58,8 @@ Now that we mutated the payload list we have to feed it in a tool in order to us
 
  http://1.bp.blogspot.com/-2egGZIwzcOk/T4MipDygvGI/AAAAAAAAAI4/L58kyrH89CU/s1600/burp1.gif
 
+After we do that we point the payloads to the proper value:
 
+ http://4.bp.blogspot.com/-J3lWJTrsbmA/T4MjPcpvl8I/AAAAAAAAAJA/Qg4mtgfyapU/s1600/burp3.gif 
 
  
