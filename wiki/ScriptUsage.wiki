@@ -1,6 +1,7 @@
+#labels Tutorial,Usage
 === How and to use the pay load mutator ===
 
-You can use the payload mutator the help you bypass badly implemented SQL injection filters e.g. by applying multiple layers of encoding to your payloads, applying selective payload encoding or even adding suffixes and postfixes. Either way by using the mutator you will end up increasing the payload diversity and expose the web application to a large amount of different inputs.   
+You can use the payload mutator the help you bypass badly implemented SQL injection filters e.g. by applying multiple layers of encoding to your payloads, applying selective payload encoding or even adding suffixes and postfixes. Either way by using the mutator you will end up increasing the payload diversity and expose the web application to a large amount of different inputs. The following sections shows you how to do that.   
 
 == Script usage ==
 
