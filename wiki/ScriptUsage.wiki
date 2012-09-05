@@ -1,6 +1,6 @@
 === How and to use the pay load mutator ===
 
-You can use the payload mutator the help bypass badly implemented SQL injection filters by e.g.  
+You can use the payload mutator the help bypass badly implemented SQL injection filters by e.g. applying multiple layers encoding to your payload.  
 
 == Script usage ==
 
