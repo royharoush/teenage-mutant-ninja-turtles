@@ -1,6 +1,6 @@
-= How to use the pay load mutator =
+=== How and to use the pay load mutator ===
 
-You can use the payload mutator to help you bypass badly implemented SQL injection filters, by increasing your payload diversity e.g. include characters that PHP functions cannot handle very well, apply multiple layers of encoding to your payloads and to perform DoS to the Web Application e.t.c.  
+You can use the payload mutator the help bypass badly implemented SQL injection filters by e.g.  
 
 == Script usage ==
 
