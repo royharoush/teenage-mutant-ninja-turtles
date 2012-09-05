@@ -64,6 +64,24 @@ After we do that we point the payloads to the proper value:
 
 *Note:* If you see carefully the above image you will see that I am using the sniper mode for the test (best choice when trying to identify initial SQL injection vulnerabilities)
 
+Different mode of Burp Intruder
+
+*Sniper*
+
+Sniper mode takes a single input list and uses it against each parameter in turn, leaving the rest of the parameters as their default value. For my four word user list it will make eight requests, four against the username field and four against the password field.
+
+*Battering Ram*
+
+Battering Ram also takes a single list but it uses each word against every parameter in a single request so this time there will only be four requests for my four usernames.
+
+*Pitchfork*
+
+Pitchfork is similar to Battering Ram but this time taking a list of words per parameter. If the lists do not match in length then the requests will stop when the shorter list runs out. In this example it will make four requests.
+
+*Cluster Bomb*
+
+Finally Cluster Bomb mode, this is the one you would expect to use in this scenario. It takes two lists and runs every word in the first list against every word in the second, i.e. your standard password brute force attack. Four usernames with five passwords makes a total of 20 requests. 
+
 ==Epilogue==
 
 This post proved you that you teenage-mutant-ninja-turtles very creatively teenage-mutant-ninja-turtles to test a web application, you can very easily use your own mutations. If you want to test for XSS or XML Injections you have obviously to change the char-set in the relevant character set directory of the project. It would be a very good idea to add some statistical analysis and filter out your list in such a way so that more interesting characters in certain positions appear at the top of the list, meaning that it would be a good idea for example to have single quote at the begging of the string and not the end.  
