@@ -33,12 +33,16 @@ A typical workflow using Burp Intruder is as follows:
 
 == Loading teenage-mutant-ninja-turtles to Burp ==
 
-In order to load teenage-mutant-ninja-turtles to burp you do:
+First we mutate a payload with teenage-mutant-ninja-turtles then in order to load teenage-mutant-ninja-turtles to burp you have to go:
 
-Double Click Burp Jar -> Burp Intruder TAB -> Load at the payload section
+Burp Intruder TAB -> payloads TAB -> Click load button
 
- 
 
+ http://4.bp.blogspot.com/-rnROxAkdPAE/T4MiWSFPXCI/AAAAAAAAAIw/HSvMbjjgQV8/s1600/burp.gif
+
+Now that we mutated the payload list we have to feed it to burp, so we go to window load the list to burp intruder:
+
+ http://1.bp.blogspot.com/-2egGZIwzcOk/T4MipDygvGI/AAAAAAAAAI4/L58kyrH89CU/s1600/burp1.gif
 
 
 
