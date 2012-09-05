@@ -1,1 +1,5 @@
-TODO
+----
+=What is a fuzzer=
+----
+
+Fuzzer: A fuzzer is a program that attempts to discover security vulnerabilities by sending random input to an application. If the program contains a vulnerability that can leads to an exception, crash or server error (in the case of web apps), it can be determined that a vulnerability has been discovered. Fuzzers are often termed Fault Injectors for this reason, they generate faults and send them to an application. Generally fuzzers are good at finding buffer overflow, DoS, SQL Injection, XSS, and Format String bugs. They do a poor job at finding vulnerabilites related to information disclosure, encryption flaws and any other vulnerability that does not cause the program to crash.
