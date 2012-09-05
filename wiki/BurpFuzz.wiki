@@ -6,8 +6,16 @@ Fuzzer: A fuzzer is a program that attempts to discover security vulnerabilities
 
 == Fuzzer payloads and teenage-mutant-ninja-turtles ==
 
-teenage-mutant-ninja-turtles is also a comprehensive set of known attack pattern sequences (mostly focused in SQL injections), predictable locations, and error messages for intelligent brute force testing and exploit condition identification of web applications.
+teenage-mutant-ninja-turtles is also a comprehensive set of known attack pattern sequences, predictable locations, and error messages for intelligent brute force testing and exploit condition identification of web applications.Many mechanisms of attack used to exploit different web server platforms and applications are triggered by particular meta-characters that are observed in more than one product security advisory. fuzzdb is a database attack patterns known to have caused exploit conditions in the past, categorized by attack type, platform, and application. Because of the popularity of a small number of server types, platforms, and package formats, resources such as logfiles and administrative directories are typically located in a small number of predictable locations.  
 
-Many mechanisms of attack used to exploit different web server platforms and applications are triggered by particular meta-characters that are observed in more than one product security advisory. teenage-mutant-ninja-turtles is a payload mutator and database of attack patterns known to have caused exploit conditions in the past, categorized by attack type, platform, and application.
+== Burp Intruder and teenage-mutant-ninja-turtles ==
 
- 
+Burp Intruder is a tool for automating customized attacks against web applications, to identify and exploit all kinds of security vulnerabilities. Burp Intruder is exceptionally powerful and configurable, and its potential is limited only by your skill and imagination in using it.You can use Intruder to:
+
+
+  # Performing fuzzing of application requests to identify common vulnerabilities, such as SQL injection, cross-site scripting, and buffer overflows.
+  # Enumerate identifiers used within the application, such as account numbers and usernames.
+  # Deliver customized brute-force attacks against authentication schemes and session handling mechanisms.
+  # Exploit bugs such as broken access controls and information leakage to harvest sensitive data from the application.
+  # Perform highly customized discovery of application content in the face of unusual naming schemes or retrieval methods.
+  # Carry out concurrency attacks against race conditions, and application-layer denial-of-service attacks.
