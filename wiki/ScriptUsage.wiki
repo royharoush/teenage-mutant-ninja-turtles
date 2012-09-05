@@ -1,3 +1,7 @@
+= How to use the pay load mutator =
+
+You can use the payload mutator to help you bypass badly implemented SQL injection filters, by increasing your payload diversity e.g. include characters that PHP functions cannot handle very well, apply multiple layers of encoding to your payloads and to perform DoS to the Web Application e.t.c.  
+
 == Script usage ==
 
 In order to run the scripts you would have to have installed python, which by the way you can download from here:http://www.python.org/getit/. The tool was tested and developed using Python 2.6.1, but earlier versions higher than Python 2.5 should not have problem executing the script properly. Now in order to run the script just execute it by typing in a Linux, Unix or Mac command prompt  ./tmntv(version).py and for Windows simply type tmntv(version).py. After you do that the following usage help message will be printed to your screen:
