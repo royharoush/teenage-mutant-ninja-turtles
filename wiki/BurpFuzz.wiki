@@ -33,7 +33,21 @@ A typical workflow using Burp Intruder is as follows:
 
 == Loading teenage-mutant-ninja-turtles to Burp ==
 
-First we mutate a payload with teenage-mutant-ninja-turtles then in order to load teenage-mutant-ninja-turtles to burp you have to go:
+First we mutate a payload with teenage-mutant-ninja-turtles by following the steps below:
+
+
+*Example:* Script execution for generating post fixed SQL injection payload file:
+
+||root# ./tmntv(version).py||Command prompt input|| 
+||Usage: Type a single option then press enter type filename press enter again for help type help for the turtle type ban!||Screen output||
+||Enter option: pfx ||Screen output|| 
+||Enter filename: filename.txt||Screen output||
+||Payload is being generated please wait...||Screen output||
+||Payload mutation is finished enjoy...||Screen output||
+||Bye bye...||Screen output||
+
+
+Then in order to load teenage-mutant-ninja-turtles to burp you have to go:
 
 Burp Intruder TAB -> payloads TAB -> Click load button
 
