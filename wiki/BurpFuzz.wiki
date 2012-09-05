@@ -68,11 +68,11 @@ After we do that we point the payloads to the proper value:
 
 *Sniper*
 
-Sniper mode takes a single input list and uses it against each parameter in turn, leaving the rest of the parameters as their default value. For my four word user list it will make eight requests, four against the username field and four against the password field.
+Sniper mode takes a single input list and uses it against each parameter in turn, leaving the rest of the parameters as their default value. 
 
 *Battering Ram*
 
-Battering Ram also takes a single list but it uses each word against every parameter in a single request so this time there will only be four requests for my four usernames.
+Battering Ram also takes a single list but it uses each word against every parameter in a single request.
 
 *Pitchfork*
 
