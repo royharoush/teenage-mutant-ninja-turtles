@@ -22,4 +22,15 @@ Burp Intruder is a tool for automating customized attacks against web applicatio
   # Exploit bugs such as broken access controls and information leakage to harvest sensitive data from the application.
   # Perform highly customized discovery of application content in the face of unusual naming schemes or retrieval methods.
   # Carry out concurrency attacks against race conditions, and application-layer denial-of-service attacks.
+
+A typical workflow using Burp Intruder is as follows:
+
+  # Identify an interesting or vulnerable request within any of the Burp Suite tools, and send this to Intruder.
+  # Mark the locations in the request where you want to insert payloads.
+  # Configure your attack payloads, using Intruder's highly configurable algorithms and preset lists, or your own custom list of payloads.
+  # Start the attack and review the detailed results, including all requests made and responses received.
+  # Analyze the results to achieve your chosen objective, using customizable filtering and sorting, or by defining your own rules for matching or extracting response data.
+
+
+
  
