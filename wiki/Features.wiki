@@ -1,5 +1,5 @@
 ----
-== *Features* ==
+= *Features* =
 ----
 
 For SQL injection attack types described in the introduction page there is a tool written by Gerasimos Kassaras (this is me) that can obfuscate SQL payloads (and other payloads), it is the Teenage Mutant Ninja Turtle tool.
