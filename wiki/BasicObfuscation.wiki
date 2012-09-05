@@ -1,4 +1,6 @@
-*Bypassing SQL Injection filters* 
+----
+=Bypassing SQL Injection filters=
+---- 
 
 The are numerous ways to by pass SQL injection filters, there even more ways to exploit them too. The most common way of evading SQL injection filters are:
 
@@ -10,7 +12,7 @@ The are numerous ways to by pass SQL injection filters, there even more ways to 
 
 Take notice that all the above SQL injection filter bypassing techniques are based on the black list filtering mentality, and not the white list filtering logic. This means that bad software development is based in black list filters concept.
 
-*Using Case Variation*
+==Using Case Variation==
 
 If a keyword-blocking filter is particularly naive, you may be able to circumvent it by varying the case of the characters in your attack string, because the database handles SQL keywords in a case-insensitive manner. 
 
@@ -24,7 +26,7 @@ You may be able to bypass the filter using the following alternative:
 
 *Note*: Using only uppercase or only lower case might also work, but I would not suggest spending a lot of time in that type of fuzzing.
 
-*Using SQL Comments*
+==Using SQL Comments==
 
 You can use in-line comment sequences to create snippets of SQL which are syntactically unusual but perfectly valid, and which bypass various kinds of input filters. You can circumvent various simple pattern-matching filters in this way.
 
@@ -36,7 +38,7 @@ In the case of MySQL, you can even use in-line comments within SQL keywords, ena
 
 *Note*: This type of filter bypassing methodology covers gap filling and black list bad character sequence filtering.
 
-*Using URL Encoding*
+==Using URL Encoding==
 
 URL encoding is a versatile technique that you can use to defeat many kinds of input filters. In its most basic form, this involves replacing problematic characters with their ASCII code in hexadecimal form, preceded by the % character. For example, the ASCII code for a single quotation mark is 0x27, so its URL-encoded representation is %27.In this situation, you can use an attack such as the following to bypass a filter:
 
@@ -73,7 +75,7 @@ A further variation on the URL-encoding technique is to use Unicode encodes of b
 
 Further, because of the complexity of the Unicode specification, decoders often tolerate illegal encoding and decode them on a “closest fit” basis. If an application's input validation checks for certain literal and Unicode-encoded strings, it may be possible to submit illegal encoding of blocked characters, which will be accepted by the input filter but which will decode appropriately to deliver a successful attack.
 
-*Using Dynamic Query Execution*
+== Using Dynamic Query Execution ==
 
 Many databases allow SQL queries to be executed dynamically, by passing a string containing an SQL query into a database function which executes the query. If you have discovered a valid SQL injection point, but find that the application’s input filters are blocking queries you want to inject, you may be able to use dynamic execution to circumvent the filters. Dynamic query execution works differently on different databases.
 
@@ -127,7 +129,7 @@ EXEC(@query)
 
 *Note*: The mass SQL injection attacks against Web applications that started in early 2008 employed this technique to reduce the chance of their exploit code being blocked by input filters in the applications being attacked.
 
-*Using Null Bytes*
+==Using Null Bytes ==
 
 Often, the input filters which you need to bypass in order to exploit an SQL injection vulnerability are implemented outside the application's own code, in intrusion detection systems (IDSs) or WAFs. For performance reasons, these components are typically written in native code languages, such as C++. In this situation, you can often use null byte attacks to circumvent input filters and smuggle your exploits into the back-end application.
 
