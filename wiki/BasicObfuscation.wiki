@@ -1,6 +1,6 @@
 ----
 =Bypassing SQL Injection filters=
----- 
+----
 
 The are numerous ways to by pass SQL injection filters, there even more ways to exploit them too. The most common way of evading SQL injection filters are:
 
