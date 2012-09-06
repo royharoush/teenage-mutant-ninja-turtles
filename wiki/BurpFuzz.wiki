@@ -84,6 +84,6 @@ Finally Cluster Bomb mode, this is the one you would expect to use in this scena
 
 ==Epilogue==
 
-This post proved you that you teenage-mutant-ninja-turtles very creatively teenage-mutant-ninja-turtles to test a web application, you can very easily use your own mutations. If you want to test for XSS or XML Injections you have obviously to change the char-set in the relevant character set directory of the project. It would be a very good idea to add some statistical analysis and filter out your list in such a way so that more interesting characters in certain positions appear at the top of the list, meaning that it would be a good idea for example to have single quote at the begging of the string and not the end.  
+This post proved you that teenage-mutant-ninja-turtles can be used very creatively to test a web application, you can very easily use your own mutations. If you want to test for XSS or XML Injections you have obviously to change the char-set in the relevant character set directory of the project. It would be a very good idea to add some statistical analysis and filter out your list in such a way so that more interesting characters in certain positions appear at the top of the list, meaning that it would be a good idea for example to have single quote at the begging of the string and not the end.  
 
  
