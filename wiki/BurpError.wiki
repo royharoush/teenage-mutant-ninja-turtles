@@ -32,6 +32,6 @@ http://4.bp.blogspot.com/-CJUPr0VPFoU/UFB5r_QxclI/AAAAAAAAA9A/E4dPXtBxl9g/s1600/
 
 *Note:* Grep Payloads can help you payload information from the server responses using Burp default lists or your own costume list. This feature is particularly useful for XSS attack, because if for example the injected script is echoed back to the user then the server is vulnerable to XSS
 
-=Epilogue=
+==Epilogue==
 
-This post proved you that you do not need to use string lists such as fuzzdb to test a web application, you can very easily use your own. If you want to test for XSS or XML Injections you have obviously to change the char-set. It would be a very good idea to add some statistical analysis and filter out your list in such a way so that more interesting characters in certain positions appear at the top of the list, meaning that it would be a good idea for example to have single quote at the begging of the string and not the end.  
+This post proved you that you do not need to use string lists such as teenage-mutant-ninja-turtles to test a web application, you can very easily use your own. If you want to test for XSS or XML Injections you have obviously to change the char-set. It would be a very good idea to add some statistical analysis and filter out your list in such a way so that more interesting characters in certain positions appear at the top of the list, meaning that it would be a good idea for example to have single quote at the begging of the string and not the end.  
