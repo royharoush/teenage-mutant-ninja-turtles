@@ -6,7 +6,7 @@ After you successfully fuzz the targeted Web Application variables, then you wou
   # Grep Extract 
   # Grep Payload
 
-*Note:* These features are found in Burp Intruder TAB -> Options TAB.
+*Note:* These features are found in Burp Intruder TAB -> Options TAB. The results view TAB contains several menus with commands for controlling the attack, and saving the results, server responses and the attack itself. 
 
 == Analysing SQL fuzzing ==
 
@@ -14,15 +14,15 @@ To do that after fuzzing the variables you go to Tab Options and then you proces
 
 http://1.bp.blogspot.com/-oQcdNlc6KAg/UFB5SAJExxI/AAAAAAAAA8w/qZEcB67qu_k/s1600/Results3.png
 
-*Note:* Grep Match can help you locate the error messages within the server responses using Burp default list or your own costume error list.
+*Note:* Grep Match can help you locate the error messages within the server responses using Burp default list or your own costume error list taken from teenage mutant ninja turtles (the error file payloads).
 
-== Analysing SQL fuzzing ==
+== Analysing XSS fuzzing results ==
 
 The most appropriate tool for analysing XSS fuzz data but also for extracting SQL filters is Grep Extract:
 
 http://4.bp.blogspot.com/-CKw1f7c3HLY/UFB5h5dJDFI/AAAAAAAAA84/f65LNUj_02Y/s1600/Results4.png
 
-*Note:* Grep Extract can help you extract information from the server responses using Burp expression default list or your own costume expression list.   
+*Note:* Grep Extract can help you extract information from the server responses using Burp expression default list or your own costume expression list taken from teenage mutant ninja turtles (the error file payloads).   
 
 == Analysing XSS fuzzing ==
 
@@ -34,4 +34,4 @@ http://4.bp.blogspot.com/-CJUPr0VPFoU/UFB5r_QxclI/AAAAAAAAA9A/E4dPXtBxl9g/s1600/
 
 ==Epilogue==
 
-This post proved you that you do not need to use string lists such as teenage-mutant-ninja-turtles to test a web application, you can very easily use your own. If you want to test for XSS or XML Injections you have obviously to change the char-set. It would be a very good idea to add some statistical analysis and filter out your list in such a way so that more interesting characters in certain positions appear at the top of the list, meaning that it would be a good idea for example to have single quote at the begging of the string and not the end.  
+This post showed how to use the costume payload files found in the teenage-mutant-ninja-turtles project to test a web application. If you want to test for XSS or XML Injections you have obviously to change the payload input. It would be a very good idea to add some statistical analysis and filter out your list in such a way so that more interesting characters in certain positions appear at the top of the list, meaning that it would be a good idea for example to have single quote at the begging of the string and not the end.  
