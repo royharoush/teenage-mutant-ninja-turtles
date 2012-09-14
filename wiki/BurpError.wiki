@@ -10,7 +10,7 @@ After you successfully fuzz the targeted Web Application variables, then you wou
 
 == Analysing SQL fuzzing ==
 
-To do that after fuzzing the variables you go to Tab Options and then you process your results using the features mentioned above:
+To do that after fuzzing the variables you go to TAB Options and then you process your results using the features mentioned above. One of the most interesting features found in Burp Intruder are the Grep Extract tool. With Grep Extract you use regular expressions in order to identify and extract complex patterns of interest (e.g. Extract a database table) returned from the server or you can use the simple matching fuctionality for extracting simple single word error messages simply to very the existance of an SQL injection.
 
 http://1.bp.blogspot.com/-oQcdNlc6KAg/UFB5SAJExxI/AAAAAAAAA8w/qZEcB67qu_k/s1600/Results3.png
 
