@@ -4,7 +4,7 @@
 The purpose of this page is to provide information about the resources used to collect the payloads and honor the people that helped me write the tool and collect the payloads.   
 
 
-== Payload Taken From Internet Links ==
+== Payloads Taken From Internet Links ==
 
 Payloads extracted from links found in various internet places:
 
@@ -18,7 +18,7 @@ Payloads extracted from links found in various internet places:
   # http://www.diigo.com/list/fmavituna/sql-injection-cheat-sheets
   # http://securityhorror.blogspot.com/2012/06/obfuscate-sql-fuzzing-for-fun-and.html
 
-== Payload Taken From Books ==
+== Payloads Taken From Books ==
 
 Payloads extracted from papers found in various internet places:
 
