@@ -21,7 +21,7 @@ The teenage-mutant-ninja-turtles tool is providing you with an easy way to gener
 
 == Functions that mutate the original payload file ==
 
-This function does not do any payload obfuscation, it only does payload line DE-duplication (e.g. removes double lines):
+This function does not do any payload mutation, it only does payload line DE-duplication (e.g. removes double lines):
 ----
 {{{
 
@@ -54,9 +54,9 @@ Output payload file content:
   # ' union (select @@version) --
   # );' union (select @@version) --
 
-*Note*: The tmntv1.4 tool will take as an input a file. 
+*Note*: The tmntv1.4 tool will take as an input a single file. 
 
-This function adds case variation:
+This function adds case variation to SQL injection queries:
 ----
 {{{
 
@@ -173,7 +173,7 @@ Input payload file content: ' union (select @@version) --
 
 Output payload file content: );' union (select @@version) --
 
-*Note*: The tmntv1.4 tool will take as an input a file.Also the Suffix Adder will read through the Suffix File and add all listed suffixes.  
+*Note*: The tmntv1.4 tool will take as an input a single file.Also the Suffix Adder will read through the SuffixFile and add all listed suffixes.  
 
 This function adds postfixes e.g. %00 etc :
 ----
@@ -207,7 +207,7 @@ Input payload file content: ' union (select @@version) --
 
 Output payload file content:  ' union (select @@version) --%00
 
-*Note*: The tmntv1.4 tool will take as an input a file. Also the Suffix Adder will read through the Suffix File and add all listed suffixes.  
+*Note*: The tmntv1.4 tool will take as an input a single file. Also the post fix Adder will read through the PostfixFile and add all listed post fixes.  
 
 This function does url encoding:
 ----
@@ -235,7 +235,7 @@ Output payload file content: %27+union+%28select+%40%40version%29+--
 
 *Note*: The tmntv1.4 tool will take as an input a file. 
 
-This function base 64 encoding:
+This function does base 64 encoding:
 ----
 {{{
 
