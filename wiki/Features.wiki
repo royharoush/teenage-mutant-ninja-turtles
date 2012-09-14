@@ -347,7 +347,7 @@ def XSSMeFormater(_payloadList):
 
 Input payload file content: <img src=l onerror=alert(2)>
 
-Output payload file content:<exportedattacks><attacks><attack><attackString><![CDATA[<img src=l onerror=alert(2)>]]></attackString><signature>Script</signature></attack><attack><attackString><![CDATA[</attack></attacks></exportedattacks>
+Output payload file content:"<exportedattacks><attacks><attack><attackString><![CDATA[<img src=l onerror=alert(2)>]]></attackString><signature>Script</signature></attack><attack><attackString><![CDATA[</attack></attacks></exportedattacks>"
 
 *Note*: The tmntv1.4 tool will take as an input a file. The XSSMeFormater will load the input file and spit out an xml file that you can use with XSSMe.
 
@@ -377,7 +377,7 @@ def SQLInjectMeFormater(_payloadList):
 ----
   * Example of SQLInjectMeFormater :
 
-Input payload file content: ' shutdown --
+Input payload file content: ' shutdown -- 
 
 Output payload file content:<exportedattacks><attacks><attack><attackString><![CDATA[' shutdown --]]></attackString><signature>TMNT</signature></attack><attack><![CDATA[</exportedattacks>
 
