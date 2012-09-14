@@ -349,7 +349,7 @@ Input payload file content: XSS payload line
 
 Output payload file content: xml tags XSSPayload xml tags
 
-*Note*: The tmntv1.4 tool will take as an input a file. The XSSMeFormater will load the input file and spit out an xml file that you can use with XSSMe.
+*Note*: The tmntv1.4 tool will take as an input a single file. The XSSMeFormater will load the input file and spit out an xml file that you can use with XSSMe.
 
 This function formats the payload file so you can import it to SQLInjectMe:
 ----
@@ -381,4 +381,4 @@ Input payload file content: ' shutdown --
 
 Output payload file content:xml tags' shutdown -- xml tags
 
-*Note*: The tmntv1.4 tool will take as an input a file. The SQLInjectMeFormater will load the input file and spit out an xml file that you can use with SQLInjectMe.      
+*Note*: The tmntv1.4 tool will take as an input a single file. The SQLInjectMeFormater will load the input file and spit out an xml file that you can use with SQLInjectMe.      
