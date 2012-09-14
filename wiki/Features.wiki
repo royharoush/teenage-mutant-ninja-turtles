@@ -13,8 +13,8 @@ The Teenage Mutant Ninja Turtles project supports the following features:
   # Payload postfix adding.
   # Payload hex encoding.
   # Paylaod case variation.
-  # Payload file formating so you can use them XXSMe
-  # Payload file formating so you can use them SQLInjectMe
+  # Payload file formating so you can use them with XXSMe firefox plugin.
+  # Payload file formating so you can use them with SQLInjectMe firefox plugin.
   # Database clean up from , leading, trailing spaces and double payloads.
 
 The teenage-mutant-ninja-turtles tool is providing you with an easy way to generate Obfuscated Fuzzing payloads in order to bypass badly implemented Web Application filters (e.t.c SQL Injection filters, XSS Injections filters e.t.c). The tool takes as an input an option and a file name and spits out a file with the obfuscated strings.
@@ -345,9 +345,9 @@ def XSSMeFormater(_payloadList):
 ----
   * Example of XSSMeFormater:
 
-Input payload file content: XSSPayload
+Input payload file content: XSS payload line
 
-Output payload file content:<exportedattacks><attacks><attack><attackString><![XSSPayload]]></attackString><signature>Script</signature></attack><attack><attackString></attack></attacks></exportedattacks>
+Output payload file content: xml tags XSSPayload xml tags
 
 *Note*: The tmntv1.4 tool will take as an input a file. The XSSMeFormater will load the input file and spit out an xml file that you can use with XSSMe.
 
@@ -379,6 +379,6 @@ def SQLInjectMeFormater(_payloadList):
 
 Input payload file content: ' shutdown -- 
 
-Output payload file content:<exportedattacks><attacks><attack><attackString><![CDATA[' shutdown --]]></attackString><signature>TMNT</signature></attack><attack><![CDATA[</exportedattacks>
+Output payload file content:xml tags' shutdown -- xml tags
 
 *Note*: The tmntv1.4 tool will take as an input a file. The SQLInjectMeFormater will load the input file and spit out an xml file that you can use with SQLInjectMe.      
