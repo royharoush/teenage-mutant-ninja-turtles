@@ -1,10 +1,15 @@
 ==Using the CAST and CONVERT keywords==
 
 Another subcategory of encoding attacks is the CAST and CONVERT attack. The CAST and CONVERT keyword explicitly converts an expression of one data type to another more over the CAST keyword is embedded to MySQL, MSSQL and Postgre databases. It has been used by various types of malware attacks in numerous web sites and is a very interesting SQL injection filter bypass. The most infamous botnet that used this type of attack was ASPRox botnet virus. Have a look at the syntax:
+
 Using CAST:  
-CAST ( expression AS data_type )
+
+  CAST ( expression AS data_type )
+
 Using CONVERT: 
-CONVERT ( data_type [ ( length ) ] , expression [ , style ] )
+
+  CONVERT ( data_type [ ( length ) ] , expression [ , style ] )
+
 With CAST and CONVERT you have similar filtering by passing results with with the function SUBSTRING, an example can show you what I mean. The following SQL queries will return the same result back:
 
 SELECT SUBSTRING('CAST and CONVERT', 1, 4) 
@@ -19,7 +24,7 @@ SELECT CONVERT(varchar,'CAST',1)
 
 Returned result: CAST
 
-Note: See that both SUBSTRING and CAST keywords behave the same and can also be used for blind SQL injection attacks (you can try to test this queries with sqlzoo.net). 
+*Note:* See that both SUBSTRING and CAST keywords behave the same and can also be used for blind SQL injection attacks (you can try to test this queries with sqlzoo.net). 
 
 Further expanding on CONVERT and CAST we can identify that also the following SQL queries are valid and also very interesting, see how we can extract the MSSQL database version with CAST and CONVERT:
 
@@ -48,13 +53,13 @@ SET @sqlcommand =  (SELECT CAST(0x53454C45435420404076657273696F6E00 AS VARCHAR(
 
 EXEC(@sqlcommand)
 
-Note: See how creative you can become with CAST and CONVERT. Now since the type of data that is contained in the sentence CAST is hexadecimal a varchar conversion is performed.
+*Note:* See how creative you can become with CAST and CONVERT. Now since the type of data that is contained in the sentence CAST is hexadecimal a varchar conversion is performed.
 
 You can also use nested CAST and CONVERT queries to inject your malicious input. That way you can start interchanging between different encoding types and create more complicated queries. This should be a good example:
 
 CAST(CAST(PAYLOAD IN HEX, VARCHAR(CHARACTER LENGTH OF PAYLOAD)),, VARCHAR(CHARACTER LENGTH OF TOTAL PAYLOAD)
      
-Nesting Stripped Expressions
+==Nesting Stripped Expressions==
 
 Some sanitizing filters strip certain characters or expressions from user input, and then process the remaining data in the usual way. If an expression that is being stripped contains two or more characters, and the filter is not applied recursively, you can normally defeat the filter by nesting the banned expression inside itself.
 
@@ -62,9 +67,9 @@ For example, if the SQL keyword SELECT is being stripped from your input, you ca
 
 SELSELECTECT
 
-Note: See the simplicity of bypassing the stupid filter.
+*Note:* See the simplicity of bypassing the stupid filter.
 
-Exploiting Truncation 
+==Exploiting Truncation ==
 
 Sanitizing filters often perform several operations on user-supplied data, and occasionally one of the steps is to truncate the input to a maximum length, perhaps in an effort to prevent buffer overflow attacks, or accommodate data within database fields that have a predefined maximum length.Consider a login function which performs the following SQL query, incorporating two items of user-supplied input:
 
@@ -81,11 +86,11 @@ The following query will be executed, and your attack will fail:
 
 SELECT uid FROM tblUsers WHERE username = 'admin''--' AND password = ''
 
-Note: The doubled-up quotes mean that your input fails to terminate the username string, and so the query actually checks for a user with the literal username you supplied. However, if you instead supply the username aaaaaaaaaaaaaaa' which contains 15 a’s and one quotation mark, the application first doubles up the quote, resulting in a 17-character string, and then removes the additional quote by truncating to 16 characters. This enables you to smuggle an unescaped quotation mark into the query, thus interfering with its syntax:
+*Note:* The doubled-up quotes mean that your input fails to terminate the username string, and so the query actually checks for a user with the literal username you supplied. However, if you instead supply the username aaaaaaaaaaaaaaa' which contains 15 a’s and one quotation mark, the application first doubles up the quote, resulting in a 17-character string, and then removes the additional quote by truncating to 16 characters. This enables you to smuggle an unescaped quotation mark into the query, thus interfering with its syntax:
 
 SELECT uid FROM tblUsers WHERE username = 'aaaaaaaaaaaaaaa'' AND password = ''
 
-Note: This initial attack results in an error, because you effectively have an unterminated string
+*Note:* This initial attack results in an error, because you effectively have an unterminated string
 
 Each pair of quotes following the a’s represents an escaped quote, and there is no final quote to delimit the user-name string. However, because you have a second insertion point, in the password field, you can restore the syntactic validity of the query, and bypass the login, by also supplying the following password:
 
@@ -103,5 +108,4 @@ which is presumably always false, or where 1 = 1, which is always true. Hence, t
 
 or uid=0-- 
 
-Note: This query is considered to be a very old technique used for authentication bypass or privilege escalation.
-
+*Note:* This query is considered to be a very old technique used for authentication bypass or privilege escalation.
