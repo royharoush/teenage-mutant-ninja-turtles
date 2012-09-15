@@ -30,6 +30,8 @@ The following table shows the help message along with a short explanation of eac
 || ver  ||   Print version of the script ||
 || all  ||   Perform all mutations ||
 || ded  ||   Deduplicate all attack strings payloads ||
+|| XXSMe ||       :  Converts the payload given as an input to an xml file that XXSMe can import ||
+|| SQLInjectMe || :  Converts the payload given as an input to an xml file that SQLInjectMe can import ||
 || var  ||   This option can be used for mutating SQL injection attack strings by adding case variation the payloads ||
 || clean  ||   Clean payload database from trailing, leading spaces,blank lines and double payloads ||
 
