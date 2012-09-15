@@ -1,12 +1,12 @@
 =Analysing fuzz data using Burp Intruder=
 
-After you successfully fuzz the targeted Web Application variables, then you would have to do some analysis on the data returned back. You can analyse the results by using the Burp three different features:
+After you successfully fuzz the targeted Web Application variables, then you would have to do some analysis on the data returned back. You can analyse the results by using the Burp three different Grep features:
 
   # Grep Match 
   # Grep Extract 
   # Grep Payload
 
-*Note:* These features are found in Burp Intruder TAB -> Options TAB. The results view TAB contains several menus with commands for controlling the attack, and saving the results, server responses and the attack itself. 
+*Note:* These features are found in Burp Intruder TAB -> Options TAB. The results view TAB contains several menus with commands for controlling the attack, and saving the results, server responses and the attack itself. The free version of Burp Proxy also includes these features, the only bad thing about the free version is that it will add throttling, decreasing the amount of time it takes to finish the attack.
 
 == Analysing SQL fuzzing ==
 
@@ -14,7 +14,7 @@ To do that after fuzzing the variables you go to TAB Options and then you proces
 
 http://1.bp.blogspot.com/-oQcdNlc6KAg/UFB5SAJExxI/AAAAAAAAA8w/qZEcB67qu_k/s1600/Results3.png
 
-*Note:* Grep Match can help you locate the error messages within the server responses using Burp default list or your own costume error list taken from teenage mutant ninja turtles (the error file payloads).
+*Note:* Grep Match can help you locate the error messages within the server responses using Burp default list or your own costume error list taken from teenage mutant ninja turtles (the error file payloads). The Grep Match feature will help you to identify errors returned back from the web application, this feature is good for identifying SQL injection issues (e.g. by greping database errors), XML injection issues and Path Traversal  injection issues, but it wont be much of a help to XSS attacks. With Grep Match you can also use complex regular expressions to filter your results.  
 
 == Analysing XSS fuzzing results ==
 
