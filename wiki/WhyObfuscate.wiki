@@ -1,5 +1,6 @@
-
-===Why use SQL obfuscation===  
+----
+=Why use SQL obfuscation=
+----
 
 SQL injection attacks can be obfuscated and relatively easy bypass these bad filter implementations. Obfuscating SQL injections attacks nowadays is a de facto standard for penetration testing and has been used by well known web malware such as ASPRox. The Asprox botnet (Discovered around 2008), also known by its aliases Badsrc and Aseljo, is a botnet mostly involved in phishing scams and performing SQL Injections into websites in order to spread Malware. Since its discovery in 2008 the Asprox botnet has been involved in multiple high-profile attacks on various websites in order to spread malware. The botnet itself consists of roughly 15,000 infected computers as of May, 2008 although the size of the botnet itself is highly variable as the controllers of the botnet have been known to deliberately shrink (and later regrow) their botnet in order to prevent more aggressive countermeasures from the IT Community.
 
