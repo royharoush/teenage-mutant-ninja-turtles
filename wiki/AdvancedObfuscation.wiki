@@ -2,6 +2,8 @@
 =Advanced SQL injection filter bypassing=
 ----
 
+Multiple layers of mutation can be applied into an SQL injection payload. Applying more than one mutation to an SQL injection payload does not mean necessarily that there is a filter for each mutation applied to the payload, it just means that a mutated payload is increasing each chances to bypass a web application filter, if there is one. Of course you do need to initially try manually to identify the type of filtering that takes place.  Another side effect of this type of multilayer mutation is that the sql injection attacks cannot be identified from the various Web Application and Web Proxy logs easily (e.g. a syslog logging all mutated sql injections wont do much help).    
+
 ==Using the CAST and CONVERT keywords==
 
 Another subcategory of encoding attacks is the CAST and CONVERT attack. The CAST and CONVERT keyword explicitly converts an expression of one data type to another more over the CAST keyword is embedded to MySQL, MSSQL and Postgre databases. It has been used by various types of malware attacks in numerous web sites and is a very interesting SQL injection filter bypass. The most infamous botnet that used this type of attack was ASPRox botnet virus. Have a look at the syntax:
@@ -170,6 +172,9 @@ SET @sqlcommand =  (SELECT CAST(0x2720756e69272b276f6e253230287365272b276c656374
 
 *Note:* The mutation layers should be applied in such a way so as not to break the SQL injection payload.
 
+*Epilogue*
+
+Multi layer payload mutation means payload optimization
 
 
 
