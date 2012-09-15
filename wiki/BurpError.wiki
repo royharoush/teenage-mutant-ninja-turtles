@@ -26,11 +26,11 @@ http://4.bp.blogspot.com/-CKw1f7c3HLY/UFB5h5dJDFI/AAAAAAAAA84/f65LNUj_02Y/s1600/
 
 == Analysing XSS fuzzing results ==
 
-The most appropriate tool for analysing XSS fuzz data is Grep Payload:
+The most appropriate tool for analysing XSS fuzz data is Grep Payloads:
 
 http://4.bp.blogspot.com/-CJUPr0VPFoU/UFB5r_QxclI/AAAAAAAAA9A/E4dPXtBxl9g/s1600/Results5.png
 
-*Note:* Grep Payload can help you extract the payload information from the server responses. This feature is particularly useful for XSS attacks, because when the injected script is echoed back to the user Burp Intruder will help you locate the payload echoed back.
+*Note:* Grep Payloads can help you extract the payload information from the server responses. This feature is particularly useful for XSS attacks, because when the injected script is echoed back to the user Burp Intruder will help you locate the server response the payload was echoed back, it will also find url encoded payloads in case that is the case.
 
 ==Epilogue==
 
