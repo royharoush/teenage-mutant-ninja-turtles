@@ -34,4 +34,4 @@ http://4.bp.blogspot.com/-CJUPr0VPFoU/UFB5r_QxclI/AAAAAAAAA9A/E4dPXtBxl9g/s1600/
 
 ==Epilogue==
 
-This post showed how to use the costume payload files found in the teenage-mutant-ninja-turtles project to test a web application. If you want to test for XSS or XML Injections you have obviously to change the payload input. It would be a very good idea to add some statistical analysis and filter out your list in such a way so that more interesting characters in certain positions appear at the top of the list, meaning that it would be a good idea for example to have single quote at the begging of the string and not the end.  
+This post showed that you can increase payload diversity in order to have better results (meaning bypass web application filters). Obfuscated payload tests must be a de facto standard in every penetration engagement. This technique can help you understand what type of payloads you should try to inject while testing a web application and also help you to improve semi manual test by mimicking the behavior of a web application scanner.   
