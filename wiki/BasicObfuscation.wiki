@@ -139,4 +139,4 @@ However, when the same input is processed by the application, in a managed code 
 
 ' UNION SELECT password FROM tblUsers WHERE username='admin'--
 
-*Note*: When access is used as a bank end database NULL bytes can be used as SQL query delimiter.
+*Note*: When access is used as a back end database NULL bytes can be used as SQL query delimiter.
