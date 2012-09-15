@@ -1,3 +1,7 @@
+----
+=Advanced SQL injection filter bypassing=
+----
+
 ==Using the CAST and CONVERT keywords==
 
 Another subcategory of encoding attacks is the CAST and CONVERT attack. The CAST and CONVERT keyword explicitly converts an expression of one data type to another more over the CAST keyword is embedded to MySQL, MSSQL and Postgre databases. It has been used by various types of malware attacks in numerous web sites and is a very interesting SQL injection filter bypass. The most infamous botnet that used this type of attack was ASPRox botnet virus. Have a look at the syntax:
