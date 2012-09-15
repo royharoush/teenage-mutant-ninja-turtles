@@ -174,7 +174,7 @@ SET @sqlcommand =  (SELECT CAST(0x2720756e69272b276f6e253230287365272b276c656374
 
 *Epilogue*
 
-Multi layer payload mutation means payload optimization
+Multi layer payload mutation means payload optimization.
 
 
 
