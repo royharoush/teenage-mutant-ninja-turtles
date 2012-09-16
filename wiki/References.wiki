@@ -30,3 +30,7 @@ Payloads extracted from papers found in various internet places:
 Payloads extracted from papers found in various internet places:
 
   # http://www.exploit-db.com/papers/17934/
+
+== Other resources used to write the tutorial ==
+
+http://www.portswigger.net/
