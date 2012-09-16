@@ -33,4 +33,4 @@ Payloads extracted from papers found in various internet places:
 
 == Other resources used to write the tutorial ==
 
-http://www.portswigger.net/
+  # http://www.portswigger.net/
