@@ -213,7 +213,7 @@ This function does url encoding:
 ----
 {{{
 
-def urlEncoder(_payloadList): # Do url encoding 
+def urlEncoder(_payloadList): # Do single url encoding 
 
  currentTime = getTime()+'_'
 
@@ -239,7 +239,7 @@ This function does base 64 encoding:
 ----
 {{{
 
-def base64Encoder(_payloadList): # Adding suffix 
+def base64Encoder(_payloadList): # Do single Base64 encoding 
 
  currentTime = getTime()+'_'
  
@@ -265,7 +265,7 @@ This function does hexadecimal encoding:
 ----
 {{{
 
-def hexEncoder(_payloadList): # Adding suffix 
+def hexEncoder(_payloadList): # Do ASCII Hex encoding 
 
  currentTime = getTime()+'_'
 
