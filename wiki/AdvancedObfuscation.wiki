@@ -2,7 +2,7 @@
 =Advanced SQL injection filter bypassing=
 ----
 
-Multiple layers of mutation can be applied into an SQL injection payload. Applying more than one mutation to an SQL injection payload does not mean necessarily that there is a filter for each mutation applied to the payload, it just means that a mutated payload is increasing each chances to bypass a web application filter, if there is one. Of course you do need to initially try manually to identify the type of filtering that takes place.  Another side effect of this type of multilayer mutation is that the sql injection attacks cannot be identified from the various Web Application and Web Proxy logs easily (e.g. a syslog logging all mutated sql injections wont do much help).    
+Multiple layers of mutation can be applied into an SQL injection payload. Applying more than one mutation to an SQL injection payload does not mean necessarily that there is a filter for each mutation applied to the payload, it just means that a mutated payload is increasing each chances to bypass a web application filter, if there is one. Of course you do need to manually identify the type of filtering that takes place.  Another side effect of this type of multilayer mutation is that the sql injection attacks cannot be identified from the various Web Application and Web Proxy logs easily by a simple visual inspection (e.g. a syslog logging all mutated sql injections will not do much help).    
 
 ==Using the CAST and CONVERT keywords==
 
