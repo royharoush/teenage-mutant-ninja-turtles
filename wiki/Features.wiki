@@ -114,7 +114,6 @@ def caseVarietionAdder(_payloadList): # Adding case variation
  for _sqlKeywordKey, _sqlKeywordValue in _sqlKeyWordDictionary.iteritems():
     _searchList.append(_sqlKeywordKey)
 
- # Write Temporary file with new payloads then filter lines to write to final payload file 
  for _payloadLine in  _payloadList:
     for _sqlKeywordKey, _sqlKeywordValue  in _sqlKeyWordDictionary.iteritems():
         if re.search(_sqlKeywordKey.upper(),_payloadLine):
