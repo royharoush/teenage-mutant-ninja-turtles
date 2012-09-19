@@ -174,7 +174,7 @@ SET @sqlcommand =  (SELECT CAST(0x2720756e69272b276f6e253230287365272b276c656374
 
 ==Epilogue==
 
-Multi layer payload mutation means payload optimization. Multy layer SQL payload mutation also mean hiding traces bypassing Intrusion Prevention and Intrusion Detection (IPS/IDS), Firewall and Web Application Firewall (WAF) filters
+Multilayer payload mutation means payload optimization. Multilayer SQL payload mutation also means hiding traces bypassing Intrusion Prevention, Intrusion Detection (IPS/IDS), Firewall and Web Application Firewall (WAF) filters. It also means that black list filtering is not sufficient. 
 
 
 
