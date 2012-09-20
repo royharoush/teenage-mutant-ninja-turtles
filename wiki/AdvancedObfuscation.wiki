@@ -34,11 +34,11 @@ Returned result: CAST
 
 Further expanding on CONVERT and CAST we can identify that also the following SQL queries are valid and also very interesting, see how we can extract the MSSQL database version with CAST and CONVERT:
 
-1st Step: Identify the query to execute:
+*1st Step:* Identify the query to execute:
 
 SELECT @@VERSION
 
-2nd Step Construct the query based on keywords CAST and CONVERT:
+*2nd Step:* Construct the query based on keywords CAST and CONVERT:
 
 
 SELECT CAST('SELECT @@VERSION' AS VARCHAR(16))
@@ -47,7 +47,7 @@ OR
 
 SELECT CONVERT(VARCHAR,'SELECT @@VERSION',1)
 
-3rd Step Execute the query using the keyword EXEC:
+*3rd Step:* Execute the query using the keyword EXEC:
 
 SET @sqlcommand =  SELECT CONVERT(VARCHAR,'SELECT @@VERSION',1)
 
