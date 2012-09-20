@@ -34,3 +34,4 @@ Payloads extracted from papers found in various internet places:
 == Other resources used to write the tutorial ==
 
   # http://www.portswigger.net/
+  # http://docs.python.org/library/re.html
