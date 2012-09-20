@@ -69,7 +69,7 @@ collectedFuzzDataFile = open("sqlErrors.txt","r")
 
 collectedFuzzDataFileObj = open(collectedFuzzDataFile,"r")
 
-if re.search(r"<script\>alert("XSS")</script>",collectedFuzzDataFileObj.read()):
+if re.search(r"ORA-00942: table or view does not exist",collectedFuzzDataFileObj.read()):
         
         print "SQL error found"
 
