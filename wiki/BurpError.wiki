@@ -55,6 +55,27 @@ if re.search(r"<script\>alert("XSS")</script>",collectedFuzzDataFileObj.read()):
 }}}
 ----
 
+*Note:* The read() function will return back the whole file as a string, if your laptop memory cannot handle the file size (properly fuzzing an application means generating GB's of data) then you can break it into small chunks using the size value e.g. read(size).
+
+Similar Python code you can use for searching SQL errors returned back from SQL fuzzing, the following Python code does that, the only difference is that know you are not looking for the echoed payload, you are looking for SQL error strings.
+
+Python code example for searching SQL Errors returned back:
+----
+{{{
+
+import re
+
+collectedFuzzDataFile = open("sqlErrors.txt","r")
+
+collectedFuzzDataFileObj = open(collectedFuzzDataFile,"r")
+
+if re.search(r"<script\>alert("XSS")</script>",collectedFuzzDataFileObj.read()):
+        
+        print "SQL error found"
+
+}}}
+----
+
 *Note:* The read() function will return back the whole file as a string, if your laptop memory cannot handle the file size (properly fuzzing an application means generating GB's of data) then you can break it into small chunks using the size value e.g. read(size).   
 
 ==Epilogue==
