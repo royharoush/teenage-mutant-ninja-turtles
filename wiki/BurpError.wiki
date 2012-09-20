@@ -8,7 +8,7 @@ After you successfully fuzz the targeted Web Application variables, then you wou
 
 *Note:* These features are found in Burp Intruder TAB -> Options TAB. The results view TAB contains several menus with commands for controlling the attack, and saving the results, server responses and the attack itself. The free version of Burp Proxy also includes these features, the only bad thing about the free version is that it will add throttling, increasing the amount of time it takes to finish the attack.
 
-== Analyzing SQL fuzzing results ==
+== Analyzing SQL fuzz data using Burp Intruder ==
 
 To do that after fuzzing the variables with SQL injection payloads you go to TAB Options and then you process your results using the features mentioned above. One of the most interesting features found in Burp Intruder are the Grep Match tool. With Grep Mach you use regular expressions in order to identify and extract complex patterns of interest.
 
@@ -16,7 +16,7 @@ http://1.bp.blogspot.com/-oQcdNlc6KAg/UFB5SAJExxI/AAAAAAAAA8w/qZEcB67qu_k/s1600/
 
 *Note:* Grep Match can help you locate the error messages within the server responses using Burp default list or your own costume error list taken from teenage mutant ninja turtles (the error file payloads). The Grep Match feature will help you to identify errors returned back from the web application, this feature is good for identifying SQL injection issues (e.g. by greping database errors), XML injection issues and Path Traversal  injection issues, but it wont be much of a help to XSS attacks. With Grep Match you can also use complex regular expressions to filter your results.  
 
-== Exploiting SQL Injections ==
+== Exploiting SQL Injections based on fuzz data and Burp Intruder ==
 
 The most appropriate tool for exploiting SQL vulnerabilities is Grep Extract:
 
@@ -24,7 +24,7 @@ http://4.bp.blogspot.com/-CKw1f7c3HLY/UFB5h5dJDFI/AAAAAAAAA84/f65LNUj_02Y/s1600/
 
 *Note:* Grep Extract can help you extract information from the server responses using Burp Intruder default list or your own costume list taken from teenage mutant ninja turtles (the error payload file).  Grep Extract when properly configured can mimic the behavior of famous tools such as SQLMap and Absinth to help you extract data from the database. It will save you time from writing your own script to exploit a SQL injection vulnerability.   
 
-== Analyzing XSS fuzzing results ==
+== Analyzing XSS fuzzing results using Burp Intruder ==
 
 The most appropriate tool for analyzing XSS fuzz data is Grep Payloads:
 
