@@ -34,6 +34,21 @@ The following table shows the help message along with a short explanation of eac
 || SQLInjectMe ||   Converts the payload given as an input to an xml file that SQLInjectMe can import ||
 || var  ||   This option can be used for mutating SQL injection attack strings by adding case variation the payloads ||
 || clean  ||   Clean payload database from trailing, leading spaces,blank lines and double payloads ||
+|| allxss  ||  Collect all xss payloads from the database into a single file ||
+|| allmssql  ||  Collect all mssql payloads from the database into a single file ||
+|| allaccess  ||  Collect all access payloads from the database into a single file ||
+|| allpostgre  ||  Collect all postgre payloads from the database into a single file ||
+|| alloracle  ||  Collect all oracle payloads from the database into a single file ||
+|| allldap  ||  Collect all ladap payloads from the database into a single file ||
+|| allxxe  ||  Collect all external entity payloads from the database into a single file ||
+|| allssi  ||  Collect all server side include payloads from the database into a single file ||
+|| allcmd  ||  Collect all os command payloads from the database into a single file ||
+|| alluseragent  ||  Collect all useragent payloads from the database into a single file ||
+|| allpaths  ||  Collect all path traversal payloads from the database into a single file ||
+|| allxpath  ||  Collect all XPath payloads from the database into a single file ||
+|| allxml  ||  Collect all xml payloads from the database into a single file ||
+|| allerrors  ||  Collect all error payloads from the database into a single file ||
+|| allhttpmethods  ||  Collect all http method payloads from the database into a single file ||
 
 == Script Examples ==
 
