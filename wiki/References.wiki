@@ -24,6 +24,7 @@ Payloads extracted from links found in various internet places:
   # http://www.slideshare.net/clubhack/attacking-with-html5lava-kumar
   # http://code.google.com/p/html5security/
   # http://heideri.ch/jso/#html5
+  # http://code.google.com/p/html5security/wiki/RedirectionMethods
 
 == Payloads Taken From Books ==
 
@@ -43,3 +44,4 @@ Payloads extracted from papers found in various internet places:
   # http://www.portswigger.net/
   # http://docs.python.org/library/re.html
   # http://code.google.com/p/html5security/
+  # http://code.google.com/p/html5security/w/list
