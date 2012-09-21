@@ -21,6 +21,7 @@ Payloads extracted from links found in various internet places:
   # https://addons.mozilla.org/en-US/firefox/addon/xss-me/
   # https://addons.mozilla.org/en-US/firefox/addon/sql-inject-me/
   # http://www.securiteam.com/securityreviews/5KP0N1PC1W.html
+  # http://www.slideshare.net/clubhack/attacking-with-html5lava-kumar
 
 == Payloads Taken From Books ==
 
