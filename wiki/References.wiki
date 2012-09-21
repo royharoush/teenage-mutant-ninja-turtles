@@ -40,3 +40,4 @@ Payloads extracted from papers found in various internet places:
 
   # http://www.portswigger.net/
   # http://docs.python.org/library/re.html
+  # http://code.google.com/p/html5security/
