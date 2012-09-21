@@ -18,6 +18,8 @@ Payloads extracted from links found in various internet places:
   # http://www.diigo.com/list/fmavituna/sql-injection-cheat-sheets
   # http://securityhorror.blogspot.com/2012/06/obfuscate-sql-fuzzing-for-fun-and.html
   # http://funoverip.net/2010/12/blind-sql-injection-detection-with-burp-suite/
+  # https://addons.mozilla.org/en-US/firefox/addon/xss-me/
+  # https://addons.mozilla.org/en-US/firefox/addon/sql-inject-me/
 
 == Payloads Taken From Books ==
 
