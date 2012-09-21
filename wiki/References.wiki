@@ -20,6 +20,7 @@ Payloads extracted from links found in various internet places:
   # http://funoverip.net/2010/12/blind-sql-injection-detection-with-burp-suite/
   # https://addons.mozilla.org/en-US/firefox/addon/xss-me/
   # https://addons.mozilla.org/en-US/firefox/addon/sql-inject-me/
+  # http://www.securiteam.com/securityreviews/5KP0N1PC1W.html
 
 == Payloads Taken From Books ==
 
