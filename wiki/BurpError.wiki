@@ -1,4 +1,4 @@
-=Analysing fuzz data using Burp Intruder=
+=Analysing fuzz data=
 
 After you successfully fuzz the targeted Web Application variables, then you would have to do some analysis on the data returned back. You can analyze the results by using the Burp three different Grep features:
 
