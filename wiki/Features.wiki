@@ -495,4 +495,4 @@ Input payload file content: ' shutdown --
 
 Output payload file content:' sh'+'utdown --
 
-*Note*: The tmntv1.4 tool will take as an input a single file. The SQLInjectMeFormater will load the input file and spit out an xml file that you can use with SQLInjectMe.      
+*Note*: The tmntv1.4 tool will take as an input a single file. The concatenation function will load the input file and spit out a file that you can use with concatenated payloads.      
