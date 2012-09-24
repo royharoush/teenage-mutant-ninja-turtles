@@ -6,16 +6,18 @@ For SQL injection attack types described in the introduction page there is a too
 
 The Teenage Mutant Ninja Turtles project supports the following features: 
 
-  # Payload de-duplication.
+  # Payload DE-duplication.
   # Payload base64 encoding.
-  # Payload url encoding.
+  # Payload URL encoding.
   # Payload suffix adding.
-  # Payload postfix adding.
+  # Payload post-fix adding.
+  # Payload concatenation adding.  
   # Payload hex encoding.
-  # Paylaod case variation.
-  # Payload file formating so you can use them with XXSMe firefox plugin.
-  # Payload file formating so you can use them with SQLInjectMe firefox plugin.
+  # Payload case variation.
+  # Payload file formatting so you can use them with XXSMe firefox plugin.
+  # Payload file formatting so you can use them with SQLInjectMe firefox plugin.
   # Database clean up from , leading, trailing spaces and double payloads.
+  # Payload collection of the same type from the database.
 
 The teenage-mutant-ninja-turtles tool is providing you with an easy way to generate Obfuscated Fuzzing payloads in order to bypass badly implemented Web Application filters (e.t.c SQL Injection filters, XSS Injections filters e.t.c). The tool takes as an input an option and a file name and spits out a file with the obfuscated strings.
 
