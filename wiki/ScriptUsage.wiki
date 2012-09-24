@@ -3,7 +3,7 @@
 = How to use the payload mutator =
 ----
 
-You can use the payload mutator the help you bypass badly implemented SQL injection filters e.g. by applying multiple layers of encoding to your payloads, applying selective payload encoding or even adding suffixes and postfixes. Either way by using the mutator you will end up increasing the payload diversity and expose the web application to a large amount of different inputs. The following sections shows you how to do that.   
+You can use the payload mutator the help you bypass badly implemented SQL injection filters e.g. by applying multiple layers of encoding to your payloads, applying selective payload encoding or even adding suffixes and postfixes. Either way by using the mutator you will end up increasing the payload diversity and expose the web application to a large amount of different inputs. The following sections shows you how to do that. At this point I have to say that the script is accompanied by an elegant ascii turtle banner, which I kindly added to welcome you.    
 
 == Script usage ==
 
@@ -12,7 +12,7 @@ In order to run the scripts you would have to have installed python, which by th
 
 ||Usage: Type a single option then press enter type file name press enter again for help type help for the turtle type ban!||
 
-*Note* The script will exit after printing this message.
+*Note* The script will wait for an option and a file input after printing this message.
 
 == Script options ==
 
