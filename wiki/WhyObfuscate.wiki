@@ -6,7 +6,7 @@ SQL injection attacks can be obfuscated and relatively easy bypass these bad fil
 
 === Purpose of this project===
 
-This project is about Obfuscated SQL Injection Fuzzing. Nowadays all high profile sites found in financial and telecommunication sector use filters to filter out all types of vulnerabilities such as SQL, XSS, XXE, Http Header Injection e.t.c. In this particular article we are going to talk only about Obfuscated SQL Fuzzing Injection attacks.
+This project is mostly about Obfuscated SQL Injection Fuzzing. Nowadays all high profile sites found in financial and telecommunication sector use filters to filter out all types of vulnerabilities such as SQL, XSS, XXE, Http Header Injection e.t.c. In this particular article we are going to talk only about Obfuscated SQL Fuzzing Injection attacks for now.
 
 First of all what obfuscate means based on the Dictionary.com:
 
