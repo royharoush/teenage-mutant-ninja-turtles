@@ -6,6 +6,8 @@
       * [WhyObfuscate Why obfuscate] 
       * [BasicObfuscation Basic payload obfuscation]
       * [AdvancedObfuscation SQL advanced payload obfuscation]
+      * [AdvancedObfuscationXSS XSS advanced payload obfuscation]
+      * [AdvancedObfuscationPathtraversal Pathtraversal advanced payload obfuscation]
       * [BurpFuzz Obfuscated fuzzing]
       * [BurpError Fuzz result analysis] 
   * [References]
