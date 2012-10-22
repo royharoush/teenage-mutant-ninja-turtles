@@ -71,6 +71,22 @@ UTF-16 (16-bit Unicode Transformation Format) is a character encoding for Unicod
 
 *Note:* UTF-16 is used for text in the OS API in Microsoft Windows 2000/XP/2003/Vista/CE. In Windows files and network data tend to be a mix of UTF-16, UTF-8, and legacy byte encodings. For instance the registry is a byte encoding, and Windows will often display filenames from remote systems as byte encodings, resulting in mojibake (mojibake means presentation of incorrect, unreadable characters when software fails to render text correctly according to its associated character encoding.) if in fact they are UTF-8.
 
+== Using NULL bytes ==
+
+Some applications check whether the user-supplied filename ends in a particular file type or set of file types and reject attempts to access anything else. Sometimes this check can be subverted by placing a URL- encoded null byte at the end of your requested filename, followed by a file type that the application accepts.
+
+Example: ../../../../../passwd%00.jpg
+
+*Note:* The reason this attack sometimes succeeds is that the file type check is implemented using an API in a managed execution environment in which strings are permitted to contain null characters (such as String. endsWith() in Java). However, when the file is actually retrieved, the application ultimately uses an API in an unmanaged environment in which strings are null-terminated. Therefore, your filename is effectively trun- cated to your desired value.
+
+Using Mangled paths
+
+If the application is attempting to sanitize user input by removing tra- versal sequences and does not apply this filter recursively, it may be possible to bypass the filter by placing one sequence within another. 
+
+Examples:....//, ...\\//, ..//..//..\\
+
+*Note:* Mangled paths can be used also as an attempt to crush the Web Application.
+
 == Methods to prevent Directory Traversal ==
 
 A possible algorithm for preventing Directory Traversal would be to:
