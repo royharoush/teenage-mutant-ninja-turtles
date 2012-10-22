@@ -26,8 +26,23 @@ Multiple percent encodings, such as:
 
 *Note:* The above characters translated into the / and \ characters.
 
-Percent encodings were decoded into the corresponding 8-bit characters by Microsoft webserver. This has historically been correct behavior as Windows and DOS traditionally used canonical 8-bit characters sets based upon ASCII. However, the original UTF-8 was not canonical, and several strings were now string encodings translatable into the same string. Microsoft performed the anti-traversal checks without UTF-8 canonicalization, and therefore not noticing that (HEX) C0AF and (HEX) 2F were the same character when doing string comparisons. Malformed percent encodings, such as %c0%9v was also utilized.
 
+== URI encoded directory traversal (The canonicalization problem again!) ==
+
+Some web applications scan query string for dangerous characters such as:
+
+..
+..\
+../
+
+to prevent directory traversal. However, the query string is usually URI decoded before use. Therefore these applications are vulnerable to percent encoded directory traversal such as:
+
+  # %2e%2e%2f which translates to ../
+  # %2e%2e/ which translates to ../
+  # ..%2f which translates to ../
+  # %2e%2e%5c which translates to ..\
+
+Percent encodings were decoded into the corresponding 8-bit characters by Microsoft webserver. This has historically been correct behavior as Windows and DOS traditionally used canonical 8-bit characters sets based upon ASCII. However, the original UTF-8 was not canonical, and several strings were now string encodings translatable into the same string. Microsoft performed the anti-traversal checks without UTF-8 canonicalization, and therefore not noticing that (HEX) C0AF and (HEX) 2F were the same character when doing string comparisons. Malformed percent encodings, such as %c0%9v was also utilized.
 
 == Methods to prevent directory traversal ==
 
@@ -42,8 +57,3 @@ A possible algorithm for preventing directory traversal would be to:
   # Check if the string contains '..' (two periods next to each other).
 
 *Note:* Using a hard-coded predefined file extension to suffix the path may limit the scope of the attack to files of that file extension.
-
-
-
-
-
