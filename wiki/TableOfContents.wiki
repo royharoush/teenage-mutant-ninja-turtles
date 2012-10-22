@@ -5,7 +5,7 @@
   * [Tutorial]
       * [WhyObfuscate Why obfuscate] 
       * [BasicObfuscation Basic payload obfuscation]
-      * [AdvancedObfuscation Advanced payload obfuscation]
+      * [AdvancedObfuscation SQL advanced payload obfuscation]
       * [BurpFuzz Obfuscated fuzzing]
       * [BurpError Fuzz result analysis] 
   * [References]
