@@ -46,3 +46,4 @@ Payloads extracted from papers found in various internet places:
   # http://code.google.com/p/html5security/
   # http://code.google.com/p/html5security/w/list
   # http://en.wikipedia.org/wiki/Directory_traversal_attack
+  # http://en.wikipedia.org/wiki/UTF-16
