@@ -21,7 +21,7 @@ If your initial attempts to perform a traversal attack (as just described above)
 
 == Using unicode/UTF-8 for encoding Directory Traversal (The canonicalization problem) ==
 
-UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at Directory Traversal prevention to be circumvented, this technique can also be used to bypass Web Application Firewalls. 
+UTF-8 (UCS Transformation Format—8-bit[1]) is a variable-width encoding that can represent every character in the Unicode character set. It was designed for backward compatibility with ASCII and to avoid the complications of endianness and byte order marks in UTF-16 and UTF-32. UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at Directory Traversal prevention to be circumvented, this technique can also be used to bypass Web Application Firewalls. 
 
 Multiple percent encodings, such as (the characters below translate into the / and \ characters.):
 
@@ -35,7 +35,6 @@ Multiple percent encodings, such as (the characters below translate into the / a
   # Dot: %c0%2e, %e0%40%ae, %c0ae
   # Forward slash: %c0%af, %e0%80%af, %c0%2f 
   # Backslash: %c0%5c, %c0%80%5c
-
 
 *Note:* You can use the illegal Unicode payload type within Burp Intruder to generate a huge number of alternate representations of any given char- acter and submit this at the relevant place within your target parameter. These representations strictly violate the rules for Unicode representa- tion but nevertheless are accepted by many implementations of Unicode decoders, particularly on the Windows platform.
 
@@ -58,9 +57,13 @@ Percent encodings were decoded into the corresponding 8-bit characters by Micros
 
 == Using 16-bit Unicode encoding ==
 
+UTF-16 (16-bit Unicode Transformation Format) is a character encoding for Unicode capable of encoding 1,112,064 numbers (called code points) in the Unicode code space from 0 to 0x10FFFF. It produces a variable-length result of either one or two 16-bit code units per code point. UTF-16 is officially defined in Annex Q of the international standard ISO/IEC 10646. It is also described in "The Unicode Standard" version 2.0 and higher, as well as in the IETF's RFC 2781. UTF-16 encoding produces a sequence of 16-bit code units. Each unit thus takes two 8-bit bytes, and the order of the bytes may depend on the endianness (byte order) of the computer architecture. The following text shows someone represent path traversal characters on UTF-16:
+
   # Dot: %u002e
   # Forward slash: %u2215
   # Backslash: %u2216
+
+*Note:* UTF-16 is used for text in the OS API in Microsoft Windows 2000/XP/2003/Vista/CE. In Windows files and network data tend to be a mix of UTF-16, UTF-8, and legacy byte encodings. For instance the registry is a byte encoding, and Windows will often display filenames from remote systems as byte encodings, resulting in mojibake (mojibake means presentation of incorrect, unreadable characters when software fails to render text correctly according to its associated character encoding.) if in fact they are UTF-8.
 
 == Using URL encoding ==
 
