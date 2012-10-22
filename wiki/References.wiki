@@ -45,3 +45,4 @@ Payloads extracted from papers found in various internet places:
   # http://docs.python.org/library/re.html
   # http://code.google.com/p/html5security/
   # http://code.google.com/p/html5security/w/list
+  # http://en.wikipedia.org/wiki/Directory_traversal_attack
