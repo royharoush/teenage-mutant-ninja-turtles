@@ -6,9 +6,34 @@ A directory traversal (or path traversal) consists in exploiting insufficient se
 
 == What really is a Path Traversal ==
 
-A Path Traversal attack aims to access files and directories that are stored outside the web root folder. By browsing the application, the attacker looks for absolute links to files stored on the web server. By manipulating variables that reference files with “dot-dot-slash (../)” sequences and its variations, it may be possible to access arbitrary files and directories stored on file system, including application source code, configuration and critical system files, limited by system operational access control. The attacker uses “../” sequences to move up to root directory, thus permitting navigation through the file system.
+A Path Traversal attack aims to access files and directories that are stored outside the web root folder. By browsing the application, the attacker looks for absolute links to files stored on the web server. By manipulating variables that reference files with “dot-dot-slash (../)” sequences and its variations, it may be possible to access arbitrary files and directories stored on file system, including application source code, configuration and critical system files, limited by system operational access control. The attacker uses “../” sequences to move up to root directory, thus permitting navigation through the file system. But what exactly is a Path Traversal vulnerability?  
 
 A Path Traversal is two things:
 
   # An input validation vulnerability (e.g the application allows the dot-dot-slash characters to pass through).
   # An access control vulnerability (e.g. the application has access to the OS file system with high privileges).
+
+*Note:* OWASP categorizes this type of attack as a hybrid attack (e.g. access control and input validation issue).
+
+== Unicode / UTF-8 encoded directory traversal (The canonicalization problem) ==
+
+UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at directory traversal prevention to be circumvented.
+
+Multiple percent encodings, such as:
+
+  # %c1%1c
+  # %c0%af
+
+*Note:* The above characters translated into the / and \ characters.
+
+Percent encodings were decoded into the corresponding 8-bit characters by Microsoft webserver. This has historically been correct behavior as Windows and DOS traditionally used canonical 8-bit characters sets based upon ASCII. However, the original UTF-8 was not canonical, and several strings were now string encodings translatable into the same string. Microsoft performed the anti-traversal checks without UTF-8 canonicalization, and therefore not noticing that (HEX) C0AF and (HEX) 2F were the same character when doing string comparisons. Malformed percent encodings, such as %c0%9v was also utilized.[2]
+
+
+
+
+
+
+
+
+
+
