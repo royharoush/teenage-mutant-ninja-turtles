@@ -8,7 +8,7 @@ Fuzzer: A fuzzer is a program that attempts to discover security vulnerabilities
 
 teenage-mutant-ninja-turtles is also a comprehensive set of known attack pattern sequences, predictable locations, and error messages for intelligent brute force testing and exploit condition identification of web applications.Many mechanisms of attacks used to exploit different web server platforms and applications are triggered by particular meta-characters that are observed in more than one product security advisory. teenage-mutant-ninja-turtles is a database with attack patterns known to have caused exploit conditions in the past, categorized by attack type, platform, and application.
 
-== About Burp Intruder ==
+== Burp Intruder as a Fuzzer ==
 
 Burp Intruder is a tool for automating customized attacks against web applications. With Burp Intruder you can identify and exploit all kinds of web security vulnerabilities. Burp Intruder is exceptionally powerful and configurable, and its potential is limited only by your skill and imagination in using it. You can use Burp Intruder to:
 
