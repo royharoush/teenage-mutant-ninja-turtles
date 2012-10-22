@@ -1,5 +1,5 @@
 ----
-=Advanced Directory Traversal filter bypassing=
+= Advanced Directory Traversal filter bypassing =
 ----
 
 A directory traversal (or path traversal) consists in exploiting insufficient security validation/sanitization of user-supplied input file names, so that characters representing "traverse to parent directory" are passed through to the file APIs. The goal of this attack is to order an application to access a computer file that is not intended to be accessible. This attack exploits a lack of security (the software is acting exactly as it is supposed to) as opposed to exploiting a bug in the code. 
@@ -17,13 +17,13 @@ A Path Traversal is two things:
 
 == Fuzzing for Directory Traversal ==
 
-If your initial attempts to perform a traversal attack (as just described above) are unsuccessful, this does not mean that the application is not vulnerable. Many application developers are aware of path traversal vulnerabilities and implement various kinds of input validation checks in an attempt to prevent them. However, those defenses are often flawed and can be bypassed by a skilled attacker.The first type of input filter commonly encountered involves checking whether the filename parameter contains any path traversal sequences. If it does, the filter either rejects the request or attempts to sanitize the input to remove the sequences. This type of filter is often vulnerable to various attacks that use alter- native encodings and other tricks to defeat the filter.
+If your initial attempts to perform a traversal attack are unsuccessful, this does not mean that the application is not vulnerable. Many application developers are aware of path traversal vulnerabilities and implement various kinds of input validation checks in an attempt to prevent them. However, those defenses are often flawed and can be bypassed by a skilled attacker.The first type of input filter commonly encountered involves checking whether the filename parameter contains any path traversal sequences. If it does, the filter either rejects the request or attempts to sanitize the input to remove the sequences. This type of filter is often vulnerable to various attacks that use alter- native encodings and other tricks to defeat the filter.
 
 == Using unicode/UTF-8 ==
 
-UTF-8 (UCS Transformation Format—8-bit[1]) is a variable-width encoding that can represent every character in the Unicode character set. It was designed for backward compatibility with ASCII and to avoid the complications of endianness and byte order marks in UTF-16 and UTF-32. UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at Directory Traversal prevention to be circumvented, this technique can also be used to bypass Web Application Firewalls. 
+UTF-8 encoding is a variable-width encoding that can represent every character in the Unicode character set. It was designed for backward compatibility with ASCII and to avoid the complications of endianness and byte order marks in UTF-16 and UTF-32. UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at Directory Traversal prevention to be circumvented, this technique can also be used to bypass Web Application Firewalls. 
 
-Multiple percent encodings, such as (the characters below translate into the / and \ characters.):
+Multiple percent encodings, such as (the characters below translate into the / and \ characters):
 
   # %c1%1c
   # %c0%af
@@ -32,48 +32,30 @@ Multiple percent encodings, such as (the characters below translate into the / a
 
 == Overlong UTF-8 Unicode encoding ==
 
+The UTF-8 standard specifies that the correct encoding of a UTF-8 codepoint use only the minimum number of bytes required to hold the significant bits of the codepoint. Longer encodings are called overlong and are not valid UTF-8 representations of the codepoint. This rule maintains a one-to-one correspondence between codepoints and their valid encodings, so that there is a unique valid encoding for each codepoint. The following text shows how overlong UTF-8 encoding can be applied to Directory Traversal payload characters:
+
   # Dot: %c0%2e, %e0%40%ae, %c0ae
   # Forward slash: %c0%af, %e0%80%af, %c0%2f 
   # Backslash: %c0%5c, %c0%80%5c
 
-*Note:* You can use the illegal Unicode payload type within Burp Intruder to generate a huge number of alternate representations of any given char- acter and submit this at the relevant place within your target parameter. These representations strictly violate the rules for Unicode representa- tion but nevertheless are accepted by many implementations of Unicode decoders, particularly on the Windows platform.
+*Note:* You can use the illegal Unicode payload type within Burp Intruder to generate a huge number of alternate representations of any given char- acter and submit this at the relevant place within your target parameter. These representations strictly violate the rules for Unicode representa- tion but nevertheless are accepted by many implementations of Unicode decoders, particularly on the Windows platform. For more information UTF-8 encodings and UTF-8 codepoints see [http://en.wikipedia.org/wiki/UTF-8#Overlong_encodings].
 
-== Using URI encoded Directory Traversal ==
+== Using URL encoding ==
 
-Some web applications scan query string for dangerous characters such as:
+Percent-encoding, also known as URL encoding, is a mechanism for encoding information in a Uniform Resource Identifier (URI) under certain circumstances. Although it is known as URL encoding it is, in fact, used more generally within the main Uniform Resource Identifier (URI) set, which includes both Uniform Resource Locator (URL) and Uniform Resource Name (URN). As such, it is also used in the preparation of data of the application/x-www-form-urlencoded media type, as is often used in the submission of HTML form data in HTTP requests. Some web applications scan query string for dangerous characters such as:
 
   #..
   #..\
   #../
 
-to prevent Directory Traversal. However, the query string is usually URI decoded before use. Therefore these applications are vulnerable to percent encoded Directory Traversal such as:
+*Note:* to prevent Directory Traversal. However, the query string is usually URL decoded before use. Therefore these applications are vulnerable to percent encoded Directory Traversal such as:
 
   # %2e%2e%2f which translates to ../
   # %2e%2e/ which translates to ../
   # ..%2f which translates to ../
   # %2e%2e%5c which translates to ..\
 
-Percent encodings were decoded into the corresponding 8-bit characters by Microsoft webserver. This has historically been correct behavior as Windows and DOS traditionally used canonical 8-bit characters sets based upon ASCII. However, the original UTF-8 was not canonical, and several strings were now string encodings translatable into the same string. Microsoft performed the anti-traversal checks without UTF-8 canonicalization, and therefore not noticing that (HEX) C0AF and (HEX) 2F were the same character when doing string comparisons. Malformed percent encodings, such as %c0%9v was also utilized.
-
-== Using 16-bit Unicode encoding ==
-
-UTF-16 (16-bit Unicode Transformation Format) is a character encoding for Unicode capable of encoding 1,112,064 numbers (called code points) in the Unicode code space from 0 to 0x10FFFF. It produces a variable-length result of either one or two 16-bit code units per code point. UTF-16 is officially defined in Annex Q of the international standard ISO/IEC 10646. It is also described in "The Unicode Standard" version 2.0 and higher, as well as in the IETF's RFC 2781. UTF-16 encoding produces a sequence of 16-bit code units. Each unit thus takes two 8-bit bytes, and the order of the bytes may depend on the endianness (byte order) of the computer architecture. The following text shows someone represent path traversal characters on UTF-16:
-
-  # Dot: %u002e
-  # Forward slash: %u2215
-  # Backslash: %u2216
-
-*Note:* UTF-16 is used for text in the OS API in Microsoft Windows 2000/XP/2003/Vista/CE. In Windows files and network data tend to be a mix of UTF-16, UTF-8, and legacy byte encodings. For instance the registry is a byte encoding, and Windows will often display filenames from remote systems as byte encodings, resulting in mojibake (mojibake means presentation of incorrect, unreadable characters when software fails to render text correctly according to its associated character encoding.) if in fact they are UTF-8.
-
-== Using URL encoding ==
-
-URL encoding a Directory Traversal payloads would have similar side effects as with the SQL Injection payload URL encoding, as far as the Web Application filter or firewall is concerned. Simple URL-encoded representations of traversal sequences would look like this:
-
-  # Dot: %2e 
-  # Forward slash: %2f 
-  # Backslash: %5c
-
-*Note:* You can either use the Teenage Mutant Ninja Turtles Project to do these mutations, Burp Decoder or an online URL encoder at [http://meyerweb.com/eric/tools/dencoder/].  
+*Note:* Percent encodings were decoded into the corresponding 8-bit characters by Microsoft webserver. This has historically been correct behavior as Windows and DOS traditionally used canonical 8-bit characters sets based upon ASCII. However, the original UTF-8 was not canonical, and several strings were now string encodings translatable into the same string. Microsoft performed the anti-traversal checks without UTF-8 canonicalization, and therefore not noticing that (HEX) C0AF and (HEX) 2F were the same character when doing string comparisons. Malformed percent encodings, such as %c0%9v was also utilized.
 
 == Using double URL encoding ==
 
@@ -84,6 +66,16 @@ Double URL encoding a Directory Traversal payloads would also have similar side 
   # Backslash: %255C
 
 *Note:* You can either use the Teenage Mutant Ninja Turtles Project to do these mutations, Burp Decoder or an online URL encoder at [http://meyerweb.com/eric/tools/dencoder/].  
+
+== Using 16-bit Unicode encoding ==
+
+UTF-16 (16-bit Unicode Transformation Format) is a character encoding for Unicode capable of encoding 1,112,064 numbers (called code points) in the Unicode code space from 0 to 0x10FFFF. It produces a variable-length result of either one or two 16-bit code units per code point. UTF-16 is officially defined in Annex Q of the international standard ISO/IEC 10646. It is also described in "The Unicode Standard" version 2.0 and higher, as well as in the IETF's RFC 2781. UTF-16 encoding produces a sequence of 16-bit code units. Each unit thus takes two 8-bit bytes, and the order of the bytes may depend on the endianness (byte order) of the computer architecture. The following text shows someone represent path traversal characters on UTF-16:
+
+  # Dot: %u002e
+  # Forward slash: %u2215
+  # Backslash: %u2216
+
+*Note:* UTF-16 is used for text in the OS API in Microsoft Windows 2000/XP/2003/Vista/CE. In Windows files and network data tend to be a mix of UTF-16, UTF-8, and legacy byte encodings. For instance the registry is a byte encoding, and Windows will often display filenames from remote systems as byte encodings, resulting in mojibake (mojibake means presentation of incorrect, unreadable characters when software fails to render text correctly according to its associated character encoding.) if in fact they are UTF-8.
 
 == Methods to prevent Directory Traversal ==
 
