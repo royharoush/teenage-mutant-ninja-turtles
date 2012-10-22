@@ -23,7 +23,7 @@ If your initial attempts to perform a traversal attack are unsuccessful, this do
 
 UTF-8 encoding is a variable-width encoding that can represent every character in the Unicode character set. It was designed for backward compatibility with ASCII and to avoid the complications of endianness and byte order marks in UTF-16 and UTF-32. UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at Directory Traversal prevention to be circumvented, this technique can also be used to bypass Web Application Firewalls. 
 
-Multiple percent encodings, such as (the characters below translate into the / and \ characters):
+Multiple percent encodings, such as the characters below translate into the / and \ characters:
 
   # %c1%1c
   # %c0%af
@@ -38,7 +38,7 @@ The UTF-8 standard specifies that the correct encoding of a UTF-8 codepoint use 
   # Forward slash: %c0%af, %e0%80%af, %c0%2f 
   # Backslash: %c0%5c, %c0%80%5c
 
-*Note:* You can use the illegal Unicode payload type within Burp Intruder to generate a huge number of alternate representations of any given char- acter and submit this at the relevant place within your target parameter. These representations strictly violate the rules for Unicode representa- tion but nevertheless are accepted by many implementations of Unicode decoders, particularly on the Windows platform. For more information UTF-8 encodings and UTF-8 codepoints see [http://en.wikipedia.org/wiki/UTF-8#Overlong_encodings].
+*Note:* You can use the illegal Unicode payload type within Burp Intruder to generate a huge number of alternate representations of any given character and submit this at the relevant place within your target parameter. These representations strictly violate the rules for Unicode representation but nevertheless are accepted by many implementations of Unicode decoders, particularly on the Windows platform. For more information UTF-8 encodings and UTF-8 codepoints see [http://en.wikipedia.org/wiki/UTF-8#Overlong_encodings].
 
 == Using URL encoding ==
 
