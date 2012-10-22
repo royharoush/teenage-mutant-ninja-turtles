@@ -42,13 +42,7 @@ The UTF-8 standard specifies that the correct encoding of a UTF-8 codepoint use 
 
 == Using URL encoding ==
 
-Percent-encoding, also known as URL encoding, is a mechanism for encoding information in a Uniform Resource Identifier (URI) under certain circumstances. Although it is known as URL encoding it is, in fact, used more generally within the main Uniform Resource Identifier (URI) set, which includes both Uniform Resource Locator (URL) and Uniform Resource Name (URN). As such, it is also used in the preparation of data of the application/x-www-form-urlencoded media type, as is often used in the submission of HTML form data in HTTP requests. Some web applications scan query string for dangerous characters such as:
-
-  #..
-  #..\
-  #../
-
-*Note:* to prevent Directory Traversal. However, the query string is usually URL decoded before use. Therefore these applications are vulnerable to percent encoded Directory Traversal such as:
+Percent-encoding, also known as URL encoding, is a mechanism for encoding information in a Uniform Resource Identifier (URI) under certain circumstances. Although it is known as URL encoding it is, in fact, used more generally within the main Uniform Resource Identifier (URI) set, which includes both Uniform Resource Locator (URL) and Uniform Resource Name (URN). As such, it is also used in the preparation of data of the application/x-www-form-urlencoded media type, as is often used in the submission of HTML form data in HTTP requests. Some web applications scan query string for dangerous characters such as .., ..\ and ../, but fail to prevent Directory Traversal in URL encoded inputs. Therefore these applications are vulnerable to percent encoded Directory Traversal such as:
 
   # %2e%2e%2f which translates to ../
   # %2e%2e/ which translates to ../
