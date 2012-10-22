@@ -19,7 +19,7 @@ A Path Traversal is two things:
 
 If your initial attempts to perform a traversal attack are unsuccessful, this does not mean that the application is not vulnerable. Many application developers are aware of path traversal vulnerabilities and implement various kinds of input validation checks in an attempt to prevent them. However, those defenses are often flawed and can be bypassed by a skilled attacker.The first type of input filter commonly encountered involves checking whether the filename parameter contains any path traversal sequences. If it does, the filter either rejects the request or attempts to sanitize the input to remove the sequences. This type of filter is often vulnerable to various attacks that use alter- native encodings and other tricks to defeat the filter.
 
-== Using unicode/UTF-8 ==
+== Using unicode/UTF-8 encoding ==
 
 UTF-8 encoding is a variable-width encoding that can represent every character in the Unicode character set. It was designed for backward compatibility with ASCII and to avoid the complications of endianness and byte order marks in UTF-16 and UTF-32. UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at Directory Traversal prevention to be circumvented, this technique can also be used to bypass Web Application Firewalls. 
 
