@@ -1,10 +1,10 @@
 ----
-=Advanced Directory traversal filter bypassing=
+=Advanced Directory Traversal filter bypassing=
 ----
 
-A directory traversal (or path traversal) consists in exploiting insufficient security validation / sanitization of user-supplied input file names, so that characters representing "traverse to parent directory" are passed through to the file APIs. The goal of this attack is to order an application to access a computer file that is not intended to be accessible. This attack exploits a lack of security (the software is acting exactly as it is supposed to) as opposed to exploiting a bug in the code. 
+A directory traversal (or path traversal) consists in exploiting insufficient security validation/sanitization of user-supplied input file names, so that characters representing "traverse to parent directory" are passed through to the file APIs. The goal of this attack is to order an application to access a computer file that is not intended to be accessible. This attack exploits a lack of security (the software is acting exactly as it is supposed to) as opposed to exploiting a bug in the code. 
 
-== What really is a Path Traversal ==
+== What really is a Directory Traversal ==
 
 A Path Traversal attack aims to access files and directories that are stored outside the web root folder. By browsing the application, the attacker looks for absolute links to files stored on the web server. By manipulating variables that reference files with “dot-dot-slash (../)” sequences and its variations, it may be possible to access arbitrary files and directories stored on file system, including application source code, configuration and critical system files, limited by system operational access control. The attacker uses “../” sequences to move up to root directory, thus permitting navigation through the file system. But what exactly is a Path Traversal vulnerability?  
 
@@ -13,29 +13,32 @@ A Path Traversal is two things:
   # An input validation vulnerability (e.g the application allows the dot-dot-slash characters to pass through).
   # An access control vulnerability (e.g. the application has access to the OS file system with high privileges).
 
-*Note:* OWASP categorizes this type of attack as a hybrid attack (e.g. access control and input validation issue).
+*Note:* OWASP categorizes this type of attack as a hybrid attack, meaning access control and input validation issue.
 
-== Unicode / UTF-8 encoded directory traversal (The canonicalization problem) ==
+== Fuzzing for Directory Traversal ==
 
-UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at directory traversal prevention to be circumvented, this technique can also be used to bypass Web Application Firewalls. 
+If your initial attempts to perform a traversal attack (as just described above) are unsuccessful, this does not mean that the application is not vulnerable. Many application developers are aware of path traversal vulnerabilities and implement various kinds of input validation checks in an attempt to prevent them. However, those defenses are often flawed and can be bypassed by a skilled attacker.The first type of input filter commonly encountered involves checking whether the filename parameter contains any path traversal sequences. If it does, the filter either rejects the request or attempts to sanitize the input to remove the sequences. This type of filter is often vulnerable to various attacks that use alter- native encodings and other tricks to defeat the filter.
 
-Multiple percent encodings, such as:
+== Using unicode / UTF-8 encoded Directory Traversal (The canonicalization problem) ==
+
+UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at Directory Traversal prevention to be circumvented, this technique can also be used to bypass Web Application Firewalls. 
+
+Multiple percent encodings, such as (the characters below translate into the / and \ characters.):
 
   # %c1%1c
   # %c0%af
 
-*Note:* The above characters translated into the / and \ characters.
+*Note:*  In older versions of Windows IIS web server, applications would, by default, run with local system privileges, allowing access to any readable file on the local filesystem. In more recent versions, in common with many other web servers, the server’s process by default runs in a less privileged user context. For this reason, when probing for path traversal vulnerabilities, it is best to request a default file that can be read by any type of user, such as c:\windows\win.ini.
 
-
-== URI encoded directory traversal (The canonicalization problem again!) ==
+== Using URI encoded Directory Traversal (The canonicalization problem again!) ==
 
 Some web applications scan query string for dangerous characters such as:
 
-..
-..\
-../
+  #..
+  #..\
+  #../
 
-to prevent directory traversal. However, the query string is usually URI decoded before use. Therefore these applications are vulnerable to percent encoded directory traversal such as:
+to prevent Directory Traversal. However, the query string is usually URI decoded before use. Therefore these applications are vulnerable to percent encoded Directory Traversal such as:
 
   # %2e%2e%2f which translates to ../
   # %2e%2e/ which translates to ../
@@ -44,9 +47,23 @@ to prevent directory traversal. However, the query string is usually URI decoded
 
 Percent encodings were decoded into the corresponding 8-bit characters by Microsoft webserver. This has historically been correct behavior as Windows and DOS traditionally used canonical 8-bit characters sets based upon ASCII. However, the original UTF-8 was not canonical, and several strings were now string encodings translatable into the same string. Microsoft performed the anti-traversal checks without UTF-8 canonicalization, and therefore not noticing that (HEX) C0AF and (HEX) 2F were the same character when doing string comparisons. Malformed percent encodings, such as %c0%9v was also utilized.
 
-== Methods to prevent directory traversal ==
+== Using 16-bit Unicode encoding ==
 
-A possible algorithm for preventing directory traversal would be to:
+== Using URL encoding ==
+
+URL encoding a Directory Traversal payload would have similar side effects as with the SQL Injection payload URL encoding, as far as the Web Application filter or firewall is concerned. Simple URL-encoded representations of traversal sequences would look like this:
+
+  # Dot: %2e 
+  # Forward slash: %2f 
+  # Backslash: %5c
+
+*Note:* You can either use the Teenage Mutant Ninja Turtles Project to do these mutations, Burp Decoder or an online URL encoder at [http://meyerweb.com/eric/tools/dencoder/].  
+
+== Using double URL encoding ==
+
+== Methods to prevent Directory Traversal ==
+
+A possible algorithm for preventing Directory Traversal would be to:
 
   # Process URI requests that do not result in a file request, e.g., executing a hook into user code, before continuing below.
   # When a URI request for a file/directory is to be made, build a full path to the file/directory if it exists, and normalize all characters (e.g., %20 converted to spaces).
