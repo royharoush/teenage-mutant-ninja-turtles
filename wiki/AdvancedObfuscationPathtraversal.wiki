@@ -17,7 +17,7 @@ A Path Traversal is two things:
 
 == Unicode / UTF-8 encoded directory traversal (The canonicalization problem) ==
 
-UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at directory traversal prevention to be circumvented.
+UTF-8 was noted as a source of vulnerabilities and attack vectors by Bruce Schneier and Jeffrey Streifling. When Microsoft added Unicode support to their Web server, a new way of encoding ../ was introduced into their code, causing their attempts at directory traversal prevention to be circumvented, this technique can also be used to bypass Web Application Firewalls. 
 
 Multiple percent encodings, such as:
 
@@ -26,12 +26,22 @@ Multiple percent encodings, such as:
 
 *Note:* The above characters translated into the / and \ characters.
 
-Percent encodings were decoded into the corresponding 8-bit characters by Microsoft webserver. This has historically been correct behavior as Windows and DOS traditionally used canonical 8-bit characters sets based upon ASCII. However, the original UTF-8 was not canonical, and several strings were now string encodings translatable into the same string. Microsoft performed the anti-traversal checks without UTF-8 canonicalization, and therefore not noticing that (HEX) C0AF and (HEX) 2F were the same character when doing string comparisons. Malformed percent encodings, such as %c0%9v was also utilized.[2]
+Percent encodings were decoded into the corresponding 8-bit characters by Microsoft webserver. This has historically been correct behavior as Windows and DOS traditionally used canonical 8-bit characters sets based upon ASCII. However, the original UTF-8 was not canonical, and several strings were now string encodings translatable into the same string. Microsoft performed the anti-traversal checks without UTF-8 canonicalization, and therefore not noticing that (HEX) C0AF and (HEX) 2F were the same character when doing string comparisons. Malformed percent encodings, such as %c0%9v was also utilized.
 
 
+== Methods to prevent directory traversal ==
 
+A possible algorithm for preventing directory traversal would be to:
 
+  # Process URI requests that do not result in a file request, e.g., executing a hook into user code, before continuing below.
+  # When a URI request for a file/directory is to be made, build a full path to the file/directory if it exists, and normalize all characters (e.g., %20 converted to spaces).
+  # It is assumed that a 'Document Root' fully qualified, normalized, path is known, and this string has a length N. Assume that no files outside this directory can be served.
+  # Ensure that the first N characters of the fully qualified path to the requested file is exactly the same as the 'Document Root'.
+  # If so, allow the file to be returned.
+  # If not, return an error, since the request is clearly out of bounds from what the web-server should be allowed to serve.
+  # Check if the string contains '..' (two periods next to each other).
 
+*Note:* Using a hard-coded predefined file extension to suffix the path may limit the scope of the attack to files of that file extension.
 
 
 
