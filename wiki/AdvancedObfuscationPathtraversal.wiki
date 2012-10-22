@@ -30,7 +30,7 @@ Multiple percent encodings, such as the characters below translate into the / an
 
 *Note:*  In older versions of Windows IIS web server, applications would, by default, run with local system privileges, allowing access to any readable file on the local filesystem. In more recent versions, in common with many other web servers, the server’s process by default runs in a less privileged user context. For this reason, when probing for path traversal vulnerabilities, it is best to request a default file that can be read by any type of user, such as c:\windows\win.ini.
 
-== Overlong UTF-8 Unicode encoding ==
+== Using overlong UTF-8 unicode encoding ==
 
 The UTF-8 standard specifies that the correct encoding of a UTF-8 codepoint use only the minimum number of bytes required to hold the significant bits of the codepoint. Longer encodings are called overlong and are not valid UTF-8 representations of the codepoint. This rule maintains a one-to-one correspondence between codepoints and their valid encodings, so that there is a unique valid encoding for each codepoint. The following text shows how overlong UTF-8 encoding can be applied to Directory Traversal payload characters:
 
