@@ -79,4 +79,3 @@ The semicolons are required for this to work:
 <IMG SRC=javascript:alert("XSS")>
 }}}
 ----
-
