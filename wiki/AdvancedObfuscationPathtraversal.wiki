@@ -77,9 +77,9 @@ Some applications check whether the user-supplied filename ends in a particular 
 
 Example: ../../../../../passwd%00.jpg
 
-*Note:* The reason this attack sometimes succeeds is that the file type check is implemented using an API in a managed execution environment in which strings are permitted to contain null characters (such as String. endsWith() in Java). However, when the file is actually retrieved, the application ultimately uses an API in an unmanaged environment in which strings are null-terminated. Therefore, your filename is effectively trun- cated to your desired value.
+*Note:* The reason this attack sometimes succeeds is that the file type check is implemented using an API in a managed execution environment in which strings are permitted to contain null characters (such as String. endsWith() in Java). However, when the file is actually retrieved, the application ultimately uses an API in an unmanaged environment in which strings are null-terminated. Therefore, your file name is effectively truncated to your desired value.
 
-Using Mangled paths
+== Using Mangled paths ==
 
 If the application is attempting to sanitize user input by removing tra- versal sequences and does not apply this filter recursively, it may be possible to bypass the filter by placing one sequence within another. 
 
