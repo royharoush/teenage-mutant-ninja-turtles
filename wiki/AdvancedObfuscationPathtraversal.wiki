@@ -104,6 +104,7 @@ In order to avoid Path Traversal attacks you should follow the generic steps sho
  6. The application should also use a hard-coded list of permissible file types and reject any request for a different type (after the preceding decoding and canonicalization has been performed).
 
  7. If file uploads must be allowed in Java, this can be achieved by instantiating a java.io.File object using the user-supplied filename and then calling the getCanonicalPath method on this object. If the string returned by this method does not begin with the name of the start directory, then the user has somehow bypassed the application’s input filters, and the request should be rejected.
-Note: Chrooted file systems are supported natively on most Unix-based platforms. A similar effect can be achieved on Windows platforms (in relation to traversal vulnerabilities) by mounting the relevant start directory as a new logical drive and using the associated drive letter to access its contents.
+
+*Note:* Chrooted file systems are supported natively on most Unix-based platforms. A similar effect can be achieved on Windows platforms (in relation to traversal vulnerabilities) by mounting the relevant start directory as a new logical drive and using the associated drive letter to access its contents.
 
 The application should integrate its defenses against path traversal attacks with its logging and alerting mechanisms. Whenever a request is received that contains path traversal sequences, this indicates likely malicious intent on the part of the user, and the application should log the request as an attempted security breach, terminate the user’s session, and if applicable, suspend the user’s account and generate an alert to an administrator.
