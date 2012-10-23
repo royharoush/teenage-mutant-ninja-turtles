@@ -47,3 +47,6 @@ Payloads extracted from papers found in various internet places:
   # http://code.google.com/p/html5security/w/list
   # http://en.wikipedia.org/wiki/Directory_traversal_attack
   # http://en.wikipedia.org/wiki/UTF-16
+  # https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
+  # https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29
+  # http://securityhorror.blogspot.ie/2012/04/msf-payload-web-bounching-att.html
