@@ -91,19 +91,19 @@ Examples:....//, ...\\//, ..//..//..\\
 
 In order to avoid Path Traversal attacks you should follow the generic steps shown below:
 
- 1. Follow the principle of least privilege - every module must be able to access only the information and resources necessary to its legitimate purpose.
+  # Follow the principle of least privilege - every module must be able to access only the information and resources necessary to its legitimate purpose.
 
- 2. Follow the principle of least user access or least-privileged user account (LUA), the concept that all users and modules at all times should run with as few privileges as possible.
+  # Follow the principle of least user access or least-privileged user account (LUA), the concept that all users and modules at all times should run with as few privileges as possible.
 
- 3. Consider the use of read-only file systems (such as CD-ROM or locked USB key) if practical.The application can also mitigate the impact of most exploitable path traversal vulnerabilities by using a chrooted environment to access the directory containing the files intended to be accessed  by the malicious user. In this situation, the chrooted directory is treated as if it is the file system root, and any redundant traversal sequences that attempt to step up above it are ignored.
+  # Consider the use of read-only file systems (such as CD-ROM or locked USB key) if practical.The application can also mitigate the impact of most exploitable path traversal vulnerabilities by using a chrooted environment to access the directory containing the files intended to be accessed  by the malicious user. In this situation, the chrooted directory is treated as if it is the file system root, and any redundant traversal sequences that attempt to step up above it are ignored.
 
- 4. Avoid passing user-submitted data to any file system API.
+  # Avoid passing user-submitted data to any file system API.
 
- 5. Analyze user submitted input by performing relevant decoding and canonicalization of the user submitted file-name. The application should check whether this contains  path traversal sequences (using backward or forward slashes) or any null bytes. If so, the application should stop processing the request. It should not attempt to perform any sanitization on the malicious file-name.
+  # Analyze user submitted input by performing relevant decoding and canonicalization of the user submitted file-name. The application should check whether this contains  path traversal sequences (using backward or forward slashes) or any null bytes. If so, the application should stop processing the request. It should not attempt to perform any sanitization on the malicious file-name.
 
- 6. The application should also use a hard-coded list of permissible file types and reject any request for a different type (after the preceding decoding and canonicalization has been performed).
+  # The application should also use a hard-coded list of permissible file types and reject any request for a different type (after the preceding decoding and canonicalization has been performed).
 
- 7. If file uploads must be allowed in Java, this can be achieved by instantiating a java.io.File object using the user-supplied filename and then calling the getCanonicalPath method on this object. If the string returned by this method does not begin with the name of the start directory, then the user has somehow bypassed the application’s input filters, and the request should be rejected.
+  # If file uploads must be allowed in Java, this can be achieved by instantiating a java.io.File object using the user-supplied filename and then calling the getCanonicalPath method on this object. If the string returned by this method does not begin with the name of the start directory, then the user has somehow bypassed the application’s input filters, and the request should be rejected.
 
 *Note:* Chrooted file systems are supported natively on most Unix-based platforms. A similar effect can be achieved on Windows platforms (in relation to traversal vulnerabilities) by mounting the relevant start directory as a new logical drive and using the associated drive letter to access its contents.
 
