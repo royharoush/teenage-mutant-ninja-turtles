@@ -1,15 +1,28 @@
 ----
-= Advanced Cross Site Scrpt filter bypassing =
+= Advanced Cross Site Script filter bypassing =
 ----
 
+Cross-Site Scripting attacks are a type of injection problem, in which malicious scripts are injected into the otherwise benign and trusted web sites. Cross-site scripting (XSS) attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user in the output it generates without validating or encoding it.
 
 == What really is an XSS ==
-
-Cross-Site Scripting attacks are a type of injection problem, in which malicious scripts are injected into the otherwise benign and trusted web sites. Cross-site scripting (XSS) attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user in the output it generates without validating or encoding it.
 
 An attacker can use XSS to send a malicious script to an unsuspecting user. The end user’s browser has no way to know that the script should not be trusted, and will execute the script. Because it thinks the script came from a trusted source, the malicious script can access any cookies, session tokens, or other sensitive information retained by your browser and used with that site. These scripts can even rewrite the content of the HTML page. 
 
 == What someone can do with XSS ==
+
+Stealing the session cookie is not the only way to take advantage of an XSS attack, so with an XSS attack someone under certain conditions can:
+
+  # Hijack the user session and cause user identity theft (which by the way is none traceable).
+  # Inject a Trojan Web Form (e.g. using Cascading Style Sheets) and steal user credentials.
+  # Redirect users to phishing sites and steal user personal data.
+  # Execute a Web Site function (e.g. cause an attack similar to a CSRF attack).
+  # Bounce to the server a malicious payload (e.g. an executable, vbs or .bat file) and compromise the users PC/Laptop.
+  # Redirect the user browser to a BEEF (Browser Exploitation Framework) link and take over the user browser.
+  # Do a File Download injection using HTTP Header Injection (I consider Header Injection to be in the same category with XSS injection)  
+
+A conceptual representation of this type if attack can be found here: 
+
+http://2.bp.blogspot.com/-4S90v3P19-c/T4aEmiazJWI/AAAAAAAAAL4/TIg8NqCTDss/s1600/Drawing1.png
 
 == Using case variation ==
 
