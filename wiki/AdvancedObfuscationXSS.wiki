@@ -24,7 +24,12 @@ A conceptual representation of this type if attack can be found here:
 
            http://2.bp.blogspot.com/-4S90v3P19-c/T4aEmiazJWI/AAAAAAAAAL4/TIg8NqCTDss/s1600/Drawing1.png
 
+
+*Note:* In this conceptual representation of the attack a malicious user sent an e-mail with the infected URL to the victim user and the victim user clicks on the URL.  This type of attack can also become more effective when Script Injection is stored into the vulnerable Web Application.
+
 == Using case variation ==
+
+Case variation can be used to bypass dummy filters:
 
 ----
 {{{
@@ -92,3 +97,7 @@ The semicolons are required for this to work:
 <IMG SRC=javascript:alert("XSS")>
 }}}
 ----
+
+== Preventing XSS ===
+
+The OWASP ESAPI project has produced a set of reusable security components in several languages, including validation and escaping routines to prevent parameter tampering and the injection of XSS attacks. In addition, the OWASP WebGoat Project training application has lessons on Cross-Site Scripting and data encoding. 
