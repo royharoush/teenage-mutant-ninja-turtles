@@ -22,7 +22,7 @@ Stealing the session cookie is not the only way to take advantage of an XSS atta
 
 A conceptual representation of this type if attack can be found here: 
 
-           http://2.bp.blogspot.com/-4S90v3P19-c/T4aEmiazJWI/AAAAAAAAAL4/TIg8NqCTDss/s1600/Drawing1.png
+http://2.bp.blogspot.com/-4S90v3P19-c/T4aEmiazJWI/AAAAAAAAAL4/TIg8NqCTDss/s1600/Drawing1.png
 
 
 *Note:* In this conceptual representation of the attack a malicious user sent an e-mail with the infected URL to the victim user and the victim user clicks on the URL.  This type of attack can also become more effective when Script Injection is stored into the vulnerable Web Application.
