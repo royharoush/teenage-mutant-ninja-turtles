@@ -22,7 +22,7 @@ Stealing the session cookie is not the only way to take advantage of an XSS atta
 
 A conceptual representation of this type if attack can be found here: 
 
-http://2.bp.blogspot.com/-4S90v3P19-c/T4aEmiazJWI/AAAAAAAAAL4/TIg8NqCTDss/s1600/Drawing1.png
+           http://2.bp.blogspot.com/-4S90v3P19-c/T4aEmiazJWI/AAAAAAAAAL4/TIg8NqCTDss/s1600/Drawing1.png
 
 == Using case variation ==
 
