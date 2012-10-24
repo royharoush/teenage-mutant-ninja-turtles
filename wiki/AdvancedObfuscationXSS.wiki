@@ -1,5 +1,5 @@
 ----
-= Advanced Cross Site Script filter bypassing (This post is going to be updated next friday) =
+= Advanced Cross Site Script filter bypassing =
 ----
 
 Cross-Site Scripting attacks are a type of injection problem, in which malicious scripts are injected into the otherwise benign and trusted web sites. Cross-site scripting (XSS) attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user in the output it generates without validating or encoding it.
@@ -36,6 +36,8 @@ Case variation can be used to bypass dummy filters:
 <IMG SRC=JaVaScRiPt:alert('XSS')>
 }}}
 ----
+
+*Note:* This I personally have never seen a case sensitive filter.  
 
 == Using the JavaScript directive ==
 
@@ -100,4 +102,4 @@ The semicolons are required for this to work:
 
 == Preventing XSS ===
 
-The OWASP ESAPI project has produced a set of reusable security components in several languages, including validation and escaping routines to prevent parameter tampering and the injection of XSS attacks. In addition, the OWASP WebGoat Project training application has lessons on Cross-Site Scripting and data encoding. 
+The OWASP ESAPI project has produced a set of reusable security components in several languages, including validation and escaping routines to prevent parameter tampering and the injection of XSS attacks. In addition, the OWASP WebGoat Project training application has lessons on Cross-Site Scripting and data encoding. More XSS you can find in The Teenage Mutant Ninja Turtle Project.
