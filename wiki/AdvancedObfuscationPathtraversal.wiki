@@ -30,6 +30,18 @@ Multiple percent encodings, such as the characters below translate into the / an
 
 *Note:*  In older versions of Windows IIS web server, applications would, by default, run with local system privileges, allowing access to any readable file on the local filesystem. In more recent versions, in common with many other web servers, the server’s process by default runs in a less privileged user context. For this reason, when probing for path traversal vulnerabilities, it is best to request a default file that can be read by any type of user, such as c:\windows\win.ini.
 
+== Using unicode/UTF-7 encoding ==
+
+UTF-7 (7-bit Unicode Transformation Format) is a variable-length character encoding that was proposed for representing Unicode text using a stream of ASCII characters. It was originally intended to provide a means of encoding Unicode text for use in Internet E-mail messages that was more efficient than the combination of UTF-8 with quoted-printable.
+
+UTF-7 was first proposed as an experimental protocol in RFC 1642, A Mail-Safe Transformation Format of Unicode. This RFC has been made obsolete by RFC 2152, an informational RFC which never became a standard. As RFC 2152 clearly states, the RFC "does not specify an Internet standard of any kind". Despite this RFC 2152 is quoted as the definition of UTF-7 in the IANA's list of charsets. Neither is UTF-7 a Unicode Standard. The Unicode Standard 5.0 only lists UTF-8, UTF-16 and UTF-32. There is also a modified version, specified in RFC 2060, which is sometimes identified as UTF-7.
+
+  # Dot: .
+  # Forward slash: / 
+  # Backslash: \
+
+*Note:* UTF-7 allows multiple representations of the same source string. In particular ASCII characters can be represented as part of Unicode blocks. As such if standard ASCII based escaping or validation processes are used on strings that may be later interpreted as UTF-7 then Unicode blocks may be used to slip malicious strings past them. To mitigate this problem systems should perform decoding before validation and should avoid attempting to auto-detect UTF-7.Older versions of Internet Explorer can be tricked into interpreting the page as UTF-7. This can be used for a cross-site scripting attack as the < and > marks can be encoded as +ADw- and +AD4- in UTF-7, which most validators let through as simple text.
+
 == Using overlong UTF-8 unicode encoding ==
 
 The UTF-8 standard specifies that the correct encoding of a UTF-8 codepoint use only the minimum number of bytes required to hold the significant bits of the codepoint. Longer encodings are called overlong and are not valid UTF-8 representations of the codepoint. This rule maintains a one-to-one correspondence between codepoints and their valid encodings, so that there is a unique valid encoding for each codepoint. The following text shows how overlong UTF-8 encoding can be applied to Directory Traversal payload characters:
