@@ -57,7 +57,7 @@ The following table shows the help message along with a short explanation of eac
 || allerrors :||Collect all error payloads from the payload database into a single file||
 || allhttpmethods :||Collect all http method payloads from the payload database into a single file||
 || isdangerous :||TODO Print warning if the payload file contains dangerous database SQL keywords||
-Now fuzz an application...
+||Now fuzz an application...||
 
 == Script Examples ==
 
