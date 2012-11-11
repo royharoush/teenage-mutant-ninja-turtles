@@ -9,6 +9,11 @@ The Teenage Mutant Ninja Turtles project supports the following features:
   # Payload DE-duplication.
   # Payload base64 encoding.
   # Payload URL encoding.
+  # Payload UTF-32 encoding.
+  # Payload UTF-16 encoding.
+  # Payload UTF-8 encoding.
+  # Payload GZIP encoding.
+  # Payload BZ2 encoding.
   # Payload suffix adding.
   # Payload post-fix adding.
   # Payload concatenation adding.  
@@ -17,11 +22,13 @@ The Teenage Mutant Ninja Turtles project supports the following features:
   # Payload file formatting so you can use them with XXSMe firefox plugin.
   # Payload file formatting so you can use them with SQLInjectMe firefox plugin.
   # Database clean up from , leading, trailing spaces and double payloads.
-  # Payload collection of the same type from the database.
+  # Payload collection of the same payload type from the database.
 
 The teenage-mutant-ninja-turtles tool is providing you with an easy way to generate Obfuscated Fuzzing payloads in order to bypass badly implemented Web Application filters (e.t.c SQL Injection filters, XSS Injections filters e.t.c). The tool takes as an input an option and a file name and spits out a file with the obfuscated strings.
 
 == Functions that mutate the original payload file ==
+
+In the following section I will show you part of the script code that implements the most important script functionality: 
 
 This function does not do any payload mutation, it only does payload line DE-duplication (e.g. removes double lines):
 ----
