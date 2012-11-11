@@ -25,6 +25,7 @@ Payloads extracted from links found in various internet places:
   # http://code.google.com/p/html5security/
   # http://heideri.ch/jso/#html5
   # http://code.google.com/p/html5security/wiki/RedirectionMethods
+  # http://websec.ca/kb/sql_injection
 
 == Payloads Taken From Books ==
 
