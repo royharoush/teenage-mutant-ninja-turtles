@@ -4,7 +4,7 @@
   * [Features Script features]
   * [Tutorial]
       * [WhyObfuscate Why obfuscate] 
-      * [BasicObfuscation SQL Basic payload obfuscation]
+      * [BasicObfuscation SQL basic payload obfuscation]
       * [AdvancedObfuscation SQL advanced payload obfuscation]
       * [AdvancedObfuscationXSS XSS advanced payload obfuscation]
       * [AdvancedObfuscationPathtraversal Pathtraversal advanced payload obfuscation]
