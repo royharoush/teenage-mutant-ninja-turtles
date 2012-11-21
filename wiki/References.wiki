@@ -55,3 +55,4 @@ Payloads extracted from papers found in various internet places:
   # http://docs.python.org/2/howto/unicode.html
   # http://www.unicode.org/versions/corrigendum1.html
   # http://www.python.org/~jeremy/weblog/031015.html
+  # http://www.joelonsoftware.com/articles/Unicode.html
