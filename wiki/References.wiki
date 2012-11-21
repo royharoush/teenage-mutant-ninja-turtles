@@ -54,3 +54,4 @@ Payloads extracted from papers found in various internet places:
   # http://en.wikipedia.org/wiki/UTF-7
   # http://docs.python.org/2/howto/unicode.html
   # http://www.unicode.org/versions/corrigendum1.html
+  # http://www.python.org/~jeremy/weblog/031015.html
