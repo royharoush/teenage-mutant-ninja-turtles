@@ -1,0 +1,3 @@
+# Tutorial Intro #
+
+This tutorial is going to explain how to perform basic and advanced SQL/Path traversal/XSS/XML injection filter bypass using teenage-mutant-ninja-turtles project. The Script usage section is going to show you how to use the tmnt(version).py script, the rest of the wiki pages are going to show you the features of the script in more detail and how to use Burp Intruder to fuzz an application and later on how to analyze the results.
